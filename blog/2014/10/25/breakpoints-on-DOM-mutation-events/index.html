@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Abhishek Mulay</title>
+  <title>Breakpoints on DOM Mutation Events - Abhishek Mulay</title>
   <meta name="author" content="Abhishek Mulay">
 
-<meta name="description" content="Latest and greatest in the world of technology!">
-<meta name="keywords" content="key 1, key 2, key 3, key 4, key 5">
+<meta name="description" content="This post covers some of the greatest features in chrome devtools which are a must know tools for any web developer.">
+<meta name="keywords" content="chrome, developer tools, tips and tricks, Front end development">
 
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://abhishekmulay.github.io">
+  <link rel="canonical" href="http://abhishekmulay.github.io/blog/2014/10/25/breakpoints-on-DOM-mutation-events">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/AbhishekMulay" rel="alternate" title="Abhishek Mulay" type="application/atom+xml">
@@ -74,53 +74,12 @@
 
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/12/13/javascript-unit-testing-with-jasmine/">Javascript Unit Testing With Jasmine</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-12-13T12:32:12+05:30'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:32 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In today’s world javascript is truly ubiquitous. There has been a proliferation of client side javascript MVC/MVW frameworks. From the mysterious world of web browsers javascript has made its way to the backend servers, with Node js becoming more poplular the future of javascript seems to be really bright.</p>
-
-<p>Now coming to the fun part , people used to think Jvascript is a toy language and I don’t need to test my javascript because ,hey I have used jQuery in my code which makes it crossbrowser compatible and makes unicorns ride on the rainbows.</p>
-
-<p>Any real web developer who has been fortunate (?) enough to debug a random javascript error in a large javascript codebase will definitely tell you it really sucks to debug javascript code when it has a lot of codependant modules and no tests to guide you and especially when the code is written by somebody else which is generally the situation in enterprise world.
-I can not imagine writting an enterprise grade web application without testing 	javascript. 
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/12/13/javascript-unit-testing-with-jasmine/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/10/25/skipping-library-framework-javascript-while-debugging/">Skipping Library / Framework Javascript Code While Debugging</a></h1>
+      <h1 class="entry-title">Breakpoints on DOM Mutation Events</h1>
     
     
       <p class="meta">
@@ -131,77 +90,91 @@ I can not imagine writting an enterprise grade web application without testing 	
 
 <time class='entry-date' datetime='2014-10-25'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
         
-           | <a href="/blog/2014/10/25/skipping-library-framework-javascript-while-debugging/#disqus_thread"
-             data-disqus-identifier="http://abhishekmulay.github.io/blog/2014/10/25/skipping-library-framework-javascript-while-debugging/">Comments</a>
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://abhishekmulay.github.io">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Whenever I am debugging java code , I really love the feature where I could tell Eclipse not to step into any library or framework class while in debug mode.</p>
-
-<p>For example , suppose you are debuggin a class which is using Spring data to persist your data into the database.You don’t want to step into the library code while debuggin because it is very less likely that there will be some bug in that code as it is already tested and used by many developers ! ( Perks of using open source technology :-) ! )</p>
-
-<p>I used to get annoyed whenever my debugger stepped into jQuery code while I was looking for errors in my own script.I always wished something similar was available for javascript. </p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/10/25/skipping-library-framework-javascript-while-debugging/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/10/25/breakpoints-on-DOM-mutation-events/">Breakpoints on DOM Mutation Events</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-10-25'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
-        
-           | <a href="/blog/2014/10/25/breakpoints-on-DOM-mutation-events/#disqus_thread"
-             data-disqus-identifier="http://abhishekmulay.github.io/blog/2014/10/25/breakpoints-on-DOM-mutation-events/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Recently I had a task to find out why a certain feature in our website was broken and making the UI look fugly.
+<div class="entry-content"><p>Recently I had a task to find out why a certain feature in our website was broken and making the UI look fugly.
 So after a quick round of debugging in chrome dev tools I was able to figure out that the styles were inline ,some javascript library or user script was adding these rogue styles which were causing the trouble. </p>
 
 <p>Now any front end enginner worth his salt will tell you that it is not an easy task to debug this scenario.
 You can easily debug what javascript is running and where it is making changes if you know the responsible js file , but without knowing the file it is nearly impossible to  trace back the source of the attached styles.
+<!-- more --></p>
+
+<p>After a day of excruciating debugging efforts , I found out this hidden gem which since then has become my most loved and most used feature of chrome devtools.</p>
+
+<p><a class="external-link" href="https://developer.chrome.com/devtools/docs/javascript-debugging#breakpoints-mutation-events">Adding DOM mutation breakpoints in chrome devtools</a></p>
+
+<p>A similar feature is available in Firefox as well.</p>
+
+<p><a class="external-link" href="http://getfirebug.com/doc/breakpoints/demo.html#html ">Adding DOM mutation breakpoints in Firebug</a>	</p>
+
+<p>This feature basically , in a way , lets you put break points on the HTML nodes which you see in the Elements tab , so when any javascript makes changes to any property of that node , you will hit the break point and you will now have the access to stacktrace and you can find out the responsible code in couple of mouse clicks .
+Isn’t it awesome ?</p>
+
+<h2 id="demo">Demo</h2>
+
+<pre class="codepen" data-height="400" data-type="css" data-href="xbwLrR" data-user="abhishekmulay"><code> </code></pre>
+<script async="" src="http://codepen.io:/assets/embed/ei.js"></script>
+
+<h4 id="happy-debugging-people">Happy debugging people!</h4>
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/10/25/breakpoints-on-DOM-mutation-events/">Read on &rarr;</a>
-    </footer>
-  
 
 
-    </article>
+  <footer>
+    <p class="meta">
+      
   
-  <div class="pagination">
+
+<span class="byline author vcard">Posted by <span class="fn">Abhishek Mulay</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-10-25'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/chrome-dev-tools/'>chrome dev tools</a>, <a class='category' href='/blog/categories/tools/'>tools</a>
+  
+</span>
+
+
+    </p>
     
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+      <div class="sharing">
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
 </div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/10/25/skipping-library-framework-javascript-while-debugging/" title="Next Post: Skipping Library / Framework javascript code while debugging">Skipping Library / Framework javascript code while debugging &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section class="signup">
@@ -282,6 +255,7 @@ You can easily debug what javascript is running and where it is making changes i
   
 </aside>
 
+
     </div>
   </div>
   <footer id="main-footer" role="contentinfo"><p>
@@ -300,7 +274,10 @@ You can easily debug what javascript is running and where it is making changes i
       var disqus_shortname = 'abhishekmulay';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://abhishekmulay.github.io/blog/2014/10/25/breakpoints-on-DOM-mutation-events/';
+        var disqus_url = 'http://abhishekmulay.github.io/blog/2014/10/25/breakpoints-on-DOM-mutation-events/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

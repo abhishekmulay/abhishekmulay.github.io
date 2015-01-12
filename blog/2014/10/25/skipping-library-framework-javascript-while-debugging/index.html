@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Abhishek Mulay</title>
+  <title>Skipping Library / Framework Javascript Code While Debugging - Abhishek Mulay</title>
   <meta name="author" content="Abhishek Mulay">
 
-<meta name="description" content="Latest and greatest in the world of technology!">
-<meta name="keywords" content="key 1, key 2, key 3, key 4, key 5">
+<meta name="description" content="This post covers some of the greatest features in chrome devtools which are a must know tools for any web developer.">
+<meta name="keywords" content="chrome, developer tools, tips and tricks, Front end development">
 
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://abhishekmulay.github.io">
+  <link rel="canonical" href="http://abhishekmulay.github.io/blog/2014/10/25/skipping-library-framework-javascript-while-debugging">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/AbhishekMulay" rel="alternate" title="Abhishek Mulay" type="application/atom+xml">
@@ -74,53 +74,12 @@
 
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/12/13/javascript-unit-testing-with-jasmine/">Javascript Unit Testing With Jasmine</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-12-13T12:32:12+05:30'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:32 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In today’s world javascript is truly ubiquitous. There has been a proliferation of client side javascript MVC/MVW frameworks. From the mysterious world of web browsers javascript has made its way to the backend servers, with Node js becoming more poplular the future of javascript seems to be really bright.</p>
-
-<p>Now coming to the fun part , people used to think Jvascript is a toy language and I don’t need to test my javascript because ,hey I have used jQuery in my code which makes it crossbrowser compatible and makes unicorns ride on the rainbows.</p>
-
-<p>Any real web developer who has been fortunate (?) enough to debug a random javascript error in a large javascript codebase will definitely tell you it really sucks to debug javascript code when it has a lot of codependant modules and no tests to guide you and especially when the code is written by somebody else which is generally the situation in enterprise world.
-I can not imagine writting an enterprise grade web application without testing 	javascript. 
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/12/13/javascript-unit-testing-with-jasmine/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/10/25/skipping-library-framework-javascript-while-debugging/">Skipping Library / Framework Javascript Code While Debugging</a></h1>
+      <h1 class="entry-title">Skipping Library / Framework Javascript Code While Debugging</h1>
     
     
       <p class="meta">
@@ -131,77 +90,100 @@ I can not imagine writting an enterprise grade web application without testing 	
 
 <time class='entry-date' datetime='2014-10-25'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
         
-           | <a href="/blog/2014/10/25/skipping-library-framework-javascript-while-debugging/#disqus_thread"
-             data-disqus-identifier="http://abhishekmulay.github.io/blog/2014/10/25/skipping-library-framework-javascript-while-debugging/">Comments</a>
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://abhishekmulay.github.io">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Whenever I am debugging java code , I really love the feature where I could tell Eclipse not to step into any library or framework class while in debug mode.</p>
+<div class="entry-content"><p>Whenever I am debugging java code , I really love the feature where I could tell Eclipse not to step into any library or framework class while in debug mode.</p>
 
 <p>For example , suppose you are debuggin a class which is using Spring data to persist your data into the database.You don’t want to step into the library code while debuggin because it is very less likely that there will be some bug in that code as it is already tested and used by many developers ! ( Perks of using open source technology :-) ! )</p>
 
 <p>I used to get annoyed whenever my debugger stepped into jQuery code while I was looking for errors in my own script.I always wished something similar was available for javascript. </p>
 
+<!-- more -->
+
+<p>Guess what , our dear chrome has same feature for us.</p>
+
+<ol>
+  <li>
+    <p>Open developer tools either by right clicking and selecting inspect element or from menu bar.
+<code>Window &gt; View &gt; Developer &gt; Developer tools</code> and open settings by clicking on the little wheel icon.</p>
+  </li>
+  <li>
+    <p>Select <code>General</code> from left section and click on the control that says <code>Manage framework blackboxing</code></p>
+  </li>
+  <li>
+    <p>Add the patterns. For example
+<code>jquery*.js|module.js|html5shiv.js</code>
+This is a regular expression so mind your typos fellas!</p>
+  </li>
+  <li>
+    <p>Select behaviour as <code>Blackbox</code>.</p>
+  </li>
+</ol>
+
+<p>Now you are ready to roll!</p>
+
+<p>Happy debugging !</p>
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/10/25/skipping-library-framework-javascript-while-debugging/">Read on &rarr;</a>
-    </footer>
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/10/25/breakpoints-on-DOM-mutation-events/">Breakpoints on DOM Mutation Events</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Abhishek Mulay</span></span>
+
+      
 
 
 
 
 <time class='entry-date' datetime='2014-10-25'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
-        
-           | <a href="/blog/2014/10/25/breakpoints-on-DOM-mutation-events/#disqus_thread"
-             data-disqus-identifier="http://abhishekmulay.github.io/blog/2014/10/25/breakpoints-on-DOM-mutation-events/">Comments</a>
-        
-      </p>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/chrome-dev-tools/'>chrome dev tools</a>, <a class='category' href='/blog/categories/tools/'>tools</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>Recently I had a task to find out why a certain feature in our website was broken and making the UI look fugly.
-So after a quick round of debugging in chrome dev tools I was able to figure out that the styles were inline ,some javascript library or user script was adding these rogue styles which were causing the trouble. </p>
-
-<p>Now any front end enginner worth his salt will tell you that it is not an easy task to debug this scenario.
-You can easily debug what javascript is running and where it is making changes if you know the responsible js file , but without knowing the file it is nearly impossible to  trace back the source of the attached styles.
+      <div class="sharing">
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/10/25/breakpoints-on-DOM-mutation-events/">Read on &rarr;</a>
-    </footer>
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/10/25/breakpoints-on-DOM-mutation-events/" title="Previous Post: Breakpoints on DOM Mutation Events">&laquo; Breakpoints on DOM Mutation Events</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/12/13/javascript-unit-testing-with-jasmine/" title="Next Post: Javascript unit testing with Jasmine">Javascript unit testing with Jasmine &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section class="signup">
@@ -282,6 +264,7 @@ You can easily debug what javascript is running and where it is making changes i
   
 </aside>
 
+
     </div>
   </div>
   <footer id="main-footer" role="contentinfo"><p>
@@ -300,7 +283,10 @@ You can easily debug what javascript is running and where it is making changes i
       var disqus_shortname = 'abhishekmulay';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://abhishekmulay.github.io/blog/2014/10/25/skipping-library-framework-javascript-while-debugging/';
+        var disqus_url = 'http://abhishekmulay.github.io/blog/2014/10/25/skipping-library-framework-javascript-while-debugging/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

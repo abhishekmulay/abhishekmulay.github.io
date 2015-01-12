@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Javascript | Abhishek Mulay]]></title>
+  <link href="http://abhishekmulay.github.io/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://abhishekmulay.github.io/"/>
+  <updated>2015-01-12T20:29:40+05:30</updated>
+  <id>http://abhishekmulay.github.io/</id>
+  <author>
+    <name><![CDATA[Abhishek Mulay]]></name>
+    <email><![CDATA[abhishekmulay1991@yahoo.in]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Javascript Unit Testing With Jasmine]]></title>
+    <link href="http://abhishekmulay.github.io/blog/2014/12/13/javascript-unit-testing-with-jasmine/"/>
+    <updated>2014-12-13T12:32:12+05:30</updated>
+    <id>http://abhishekmulay.github.io/blog/2014/12/13/javascript-unit-testing-with-jasmine</id>
+    <content type="html"><![CDATA[<p>In today’s world javascript is truly ubiquitous. There has been a proliferation of client side javascript MVC/MVW frameworks. From the mysterious world of web browsers javascript has made its way to the backend servers, with Node js becoming more poplular the future of javascript seems to be really bright.</p>
+
+<p>Now coming to the fun part , people used to think Jvascript is a toy language and I don’t need to test my javascript because ,hey I have used jQuery in my code which makes it crossbrowser compatible and makes unicorns ride on the rainbows.</p>
+
+<p>Any real web developer who has been fortunate (?) enough to debug a random javascript error in a large javascript codebase will definitely tell you it really sucks to debug javascript code when it has a lot of codependant modules and no tests to guide you and especially when the code is written by somebody else which is generally the situation in enterprise world.
+I can not imagine writting an enterprise grade web application without testing 	javascript. 
+<!-- more --></p>
+
+<p>So now that I have (hopefully) convinced you to test your javascript , lets get started. shall we ?</p>
+
+<h2 id="what-do-i-need-to-test-my-javascript--aka-tools-and-environment-setup">What do I need to test my javascript ? aka tools and environment setup.</h2>
+
+<p>If you are on a mac I strongly recommend you to install <a href="http://brew.sh/">brew</a> which will make your life super easy.</p>
+
+<h3 id="install-node-js">Install Node js</h3>
+
+<p>If you have not installed Node yet , please do so by going to their
+<a href="http://nodejs.org/">website</a> and installing node suitable to your platform (Windows/Linux etc).</p>
+
+<p>If you are on a mac you can do it very easily with brew 
+<code> brew install node   </code></p>
+
+<p>Check if node is installed by running  following comamnd in your terminal/command prompt.  <code>node -v</code></p>
+
+<h3 id="install-a-test-runner">Install a test runner</h3>
+
+<p>Now what is a test runner ? A test runner is a program which runs your tests for you. If you are into Continuous Integration and Continuous Delivery process, a test runner which automates tests is an absolutely must have tool.</p>
+
+<p>A test runner not oly runs your tests but it also provides real time feedback if something fails. You can configure your test runner to run tests on all your target browsers , and for continuous integration purposes if you want to have your tests run automatically without opening an actual browser you can you a headless browser like Phantomjs.</p>
+
+<p>For this tutorial we are going to use  <a href="https://github.com/airportyh/testem">Testem</a> which is easy and quick to get started with. There are many other test runners like <a href="http://karma-runner.github.io/0.12/index.html">Karma </a> , <a href="http://www.venusjs.org/">Venus</a> which have many more configurations available.</p>
+
+<p>Use this simple command for installing testem</p>
+
+<p><code>npm install -g testem </code></p>
+
+<p>The <code> -g </code> flag installs the node module globally and makes sure that it is invokable from anywhere from the command line.</p>
+
+<p>Now we are all set with our tools to write our first test case.	But before moving on there are couple of things that we should look at.</p>
+
+<p>All the cool kids are doing <code>TDD / BDD</code> these days. Now What the heck is this <code>TDD / BDD </code>?</p>
+
+<p><code>TDD / BDD</code> stands for <code>Test(Behaviour) Driven Development. </code></p>
+
+<p>I don’t want to get into theorotical detials of TDD/BDD and kill the enthusiasm. This a topic for a separate blog post. </p>
+
+<p>Don’t worry just follow following 3 points and you will be good to go.</p>
+
+<ol>
+  <li>
+    <h4 id="write-a-failing-test-case">Write a failing test case.</h4>
+  </li>
+  <li>
+    <h4 id="write-the-code-just-enough-to-pass-the-failing-test">Write the code just enough to pass the failing test.</h4>
+  </li>
+  <li>
+    <h4 id="refactor-continue-to-step-1">Refactor. continue to step 1</h4>
+  </li>
+</ol>
+
+<figure class="tdd-image">
+<img src="http://codeguide.hu//wp-content/uploads/tdd_flow.gif" />
+</figure>
+
+<p>I know you are getting tired of this theory. Lets jump into code and get our hands dirty.</p>
+
+<p>Lets create a repository called <code>Calculator</code>. Create folder structure like this. We are going to keep all our code in here. </p>
+
+<p><img src="/images/folder-structure.png" /></p>
+
+<p>For this tutorial we are going to create a simple Calculator using plain HTML, CSS and JS.</p>
+
+<p>Let’s go through the files quickly.</p>
+
+<h4 id="testemjson">1. testem.json</h4>
+<p><code>~/Calculator/testem.json</code></p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+</pre></td>
+  <td class="code"><pre>
+{
+ 
+ <span class="key"><span class="delimiter">&quot;</span><span class="content">launch_in_dev</span><span class="delimiter">&quot;</span></span>:[<span class="string"><span class="delimiter">&quot;</span><span class="content">chrome</span><span class="delimiter">&quot;</span></span>],
+ <span class="key"><span class="delimiter">&quot;</span><span class="content">framework</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">jasmine</span><span class="delimiter">&quot;</span></span>,
+ <span class="key"><span class="delimiter">&quot;</span><span class="content">src_files</span><span class="delimiter">&quot;</span></span>: [ <span class="string"><span class="delimiter">&quot;</span><span class="content">js/lib/*.js</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">js/*.js</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">spec/*.spec.js</span><span class="delimiter">&quot;</span></span> ]
+
+ }
+</pre></td>
+</tr></table>
+</div>
+
+<p>This is a configuration file for Testem test runner. It is pretty simple , we are running our tests in dev mode on chrome browser, we can add more browsers in here and testem will run our tests on all those browsers for us.
+We have also provided the file path from where testem should read the code and test files.</p>
+
+<h4 id="calculatorhtml">2. Calculator.html</h4>
+
+<p><code>~/Calculator/Calculator.html</code>
+This contains basic markup for the calculator.</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+<strong><a href="#n10" name="n10">10</a></strong>
+<a href="#n11" name="n11">11</a>
+<a href="#n12" name="n12">12</a>
+<a href="#n13" name="n13">13</a>
+<a href="#n14" name="n14">14</a>
+<a href="#n15" name="n15">15</a>
+<a href="#n16" name="n16">16</a>
+<a href="#n17" name="n17">17</a>
+<a href="#n18" name="n18">18</a>
+<a href="#n19" name="n19">19</a>
+<strong><a href="#n20" name="n20">20</a></strong>
+<a href="#n21" name="n21">21</a>
+<a href="#n22" name="n22">22</a>
+<a href="#n23" name="n23">23</a>
+<a href="#n24" name="n24">24</a>
+<a href="#n25" name="n25">25</a>
+<a href="#n26" name="n26">26</a>
+<a href="#n27" name="n27">27</a>
+<a href="#n28" name="n28">28</a>
+<a href="#n29" name="n29">29</a>
+<strong><a href="#n30" name="n30">30</a></strong>
+<a href="#n31" name="n31">31</a>
+<a href="#n32" name="n32">32</a>
+<a href="#n33" name="n33">33</a>
+<a href="#n34" name="n34">34</a>
+<a href="#n35" name="n35">35</a>
+<a href="#n36" name="n36">36</a>
+<a href="#n37" name="n37">37</a>
+<a href="#n38" name="n38">38</a>
+<a href="#n39" name="n39">39</a>
+<strong><a href="#n40" name="n40">40</a></strong>
+<a href="#n41" name="n41">41</a>
+<a href="#n42" name="n42">42</a>
+<a href="#n43" name="n43">43</a>
+<a href="#n44" name="n44">44</a>
+<a href="#n45" name="n45">45</a>
+<a href="#n46" name="n46">46</a>
+<a href="#n47" name="n47">47</a>
+<a href="#n48" name="n48">48</a>
+<a href="#n49" name="n49">49</a>
+<strong><a href="#n50" name="n50">50</a></strong>
+<a href="#n51" name="n51">51</a>
+<a href="#n52" name="n52">52</a>
+<a href="#n53" name="n53">53</a>
+<a href="#n54" name="n54">54</a>
+<a href="#n55" name="n55">55</a>
+<a href="#n56" name="n56">56</a>
+<a href="#n57" name="n57">57</a>
+<a href="#n58" name="n58">58</a>
+<a href="#n59" name="n59">59</a>
+<strong><a href="#n60" name="n60">60</a></strong>
+<a href="#n61" name="n61">61</a>
+<a href="#n62" name="n62">62</a>
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;html&gt;</span>
+
+    <span class="tag">&lt;head&gt;</span>
+        <span class="tag">&lt;meta</span> <span class="attribute-name">charset</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">utf-8</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;link</span> <span class="attribute-name">rel</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">stylesheet</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/css</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">css/style.css</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+
+<span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">calculator_widget</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">calculator-container</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">box</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;p</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                Calculator Widget
+            <span class="tag">&lt;/p&gt;</span>
+            <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">display</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                <span class="tag">&lt;input</span>  <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">123</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">display-box</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">placeholder</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Enter number</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">disabled</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">disabled</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+                <span class="tag">&lt;input</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">display-box</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">placeholder</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Enter number</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">disabled</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">disabled</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+            <span class="tag">&lt;/div&gt;</span>
+
+            <span class="tag">&lt;ul</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">calculator-list</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                <span class="tag">&lt;li</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">row</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">7-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>7<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">8-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>8<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">9-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>9<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                    <span class="tag">&lt;span</span> <span class="tag">&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">add-btn</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">symbols operator</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">data-operator</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ADD</span><span class="delimiter">&quot;</span></span> <span class="tag">&gt;</span>+<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                <span class="tag">&lt;/li&gt;</span>
+                <span class="tag">&lt;li</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">row</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">4-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>4<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>5<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">6-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>6<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sub-button</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">symbols operator</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">data-operator</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SUBTRACT</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>-<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                <span class="tag">&lt;/li&gt;</span>
+                <span class="tag">&lt;li</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">row</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>1<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">2-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>2<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">3-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>3<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">multi-btn</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">symbols operator</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">data-operator</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">MULTIPLY</span><span class="delimiter">&quot;</span></span> <span class="tag">&gt;</span>*<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                <span class="tag">&lt;/li&gt;</span>
+                <span class="tag">&lt;li</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">row</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">dot-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>.<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">0-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>0<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">clear-btn</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">symbols</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>C<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">clear-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>C<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">div-btn</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">symbols operator</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">data-operator</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">DIVIDE</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>/<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                <span class="tag">&lt;/li&gt;</span>
+                <span class="tag">&lt;li</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">row</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                    <span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">equals-btn</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">symbols</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>=<span class="tag">&lt;/button&gt;</span>
+                <span class="tag">&lt;/li&gt;</span>
+            <span class="tag">&lt;/ul&gt;</span>
+        <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+
+    <span class="tag">&lt;script</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/javascript</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">js/lib/jQuery.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+    <span class="tag">&lt;script</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/javascript</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">js/Calculator.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+    <span class="tag">&lt;script</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/javascript</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="inline">      <span class="comment">// we are going to write some awesome javascript here!</span></span>
+    <span class="tag">&lt;/script&gt;</span>
+
+<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span>
+
+</pre></td>
+</tr></table>
+</div>
+
+<h4 id="stylecss">3. style.css</h4>
+
+<p><code>~/Calculator/css/style.css</code>
+This will make our dumb calculator look pretty.</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+<strong><a href="#n10" name="n10">10</a></strong>
+<a href="#n11" name="n11">11</a>
+<a href="#n12" name="n12">12</a>
+<a href="#n13" name="n13">13</a>
+<a href="#n14" name="n14">14</a>
+<a href="#n15" name="n15">15</a>
+<a href="#n16" name="n16">16</a>
+<a href="#n17" name="n17">17</a>
+<a href="#n18" name="n18">18</a>
+<a href="#n19" name="n19">19</a>
+<strong><a href="#n20" name="n20">20</a></strong>
+<a href="#n21" name="n21">21</a>
+<a href="#n22" name="n22">22</a>
+<a href="#n23" name="n23">23</a>
+<a href="#n24" name="n24">24</a>
+<a href="#n25" name="n25">25</a>
+<a href="#n26" name="n26">26</a>
+<a href="#n27" name="n27">27</a>
+<a href="#n28" name="n28">28</a>
+<a href="#n29" name="n29">29</a>
+<strong><a href="#n30" name="n30">30</a></strong>
+<a href="#n31" name="n31">31</a>
+<a href="#n32" name="n32">32</a>
+<a href="#n33" name="n33">33</a>
+<a href="#n34" name="n34">34</a>
+<a href="#n35" name="n35">35</a>
+<a href="#n36" name="n36">36</a>
+<a href="#n37" name="n37">37</a>
+<a href="#n38" name="n38">38</a>
+<a href="#n39" name="n39">39</a>
+<strong><a href="#n40" name="n40">40</a></strong>
+<a href="#n41" name="n41">41</a>
+<a href="#n42" name="n42">42</a>
+<a href="#n43" name="n43">43</a>
+<a href="#n44" name="n44">44</a>
+<a href="#n45" name="n45">45</a>
+<a href="#n46" name="n46">46</a>
+<a href="#n47" name="n47">47</a>
+<a href="#n48" name="n48">48</a>
+<a href="#n49" name="n49">49</a>
+<strong><a href="#n50" name="n50">50</a></strong>
+<a href="#n51" name="n51">51</a>
+<a href="#n52" name="n52">52</a>
+<a href="#n53" name="n53">53</a>
+<a href="#n54" name="n54">54</a>
+<a href="#n55" name="n55">55</a>
+<a href="#n56" name="n56">56</a>
+<a href="#n57" name="n57">57</a>
+<a href="#n58" name="n58">58</a>
+<a href="#n59" name="n59">59</a>
+<strong><a href="#n60" name="n60">60</a></strong>
+<a href="#n61" name="n61">61</a>
+<a href="#n62" name="n62">62</a>
+<a href="#n63" name="n63">63</a>
+<a href="#n64" name="n64">64</a>
+<a href="#n65" name="n65">65</a>
+<a href="#n66" name="n66">66</a>
+<a href="#n67" name="n67">67</a>
+<a href="#n68" name="n68">68</a>
+<a href="#n69" name="n69">69</a>
+<strong><a href="#n70" name="n70">70</a></strong>
+<a href="#n71" name="n71">71</a>
+<a href="#n72" name="n72">72</a>
+<a href="#n73" name="n73">73</a>
+<a href="#n74" name="n74">74</a>
+<a href="#n75" name="n75">75</a>
+<a href="#n76" name="n76">76</a>
+<a href="#n77" name="n77">77</a>
+<a href="#n78" name="n78">78</a>
+</pre></td>
+  <td class="code"><pre><span class="id">#calculator-container</span>{
+    <span class="key">margin</span>: <span class="float">0</span> <span class="value">auto</span>;
+    <span class="key">width</span>:<span class="float">350px</span>;
+    <span class="key">height</span>:<span class="float">380px</span>;
+    <span class="key">-webkit-box-shadow</span>: <span class="float">10px</span> <span class="float">10px</span> <span class="float">5px</span> <span class="color">#666</span>;
+    <span class="key">border-radius</span>: <span class="float">3px</span>;
+}
+
+<span class="id">#calculator-container</span> <span class="class">.box</span>{
+    <span class="key">background-color</span>: <span class="color">#EEE</span>;
+    <span class="key">margin</span>: <span class="float">5px</span>;
+    <span class="key">width</span>:<span class="float">100%</span>;
+    <span class="key">height</span>:<span class="float">100%</span>;
+    <span class="key">border</span>: <span class="float">1px</span> <span class="value">solid</span> <span class="value">black</span>;
+    <span class="key">border-radius</span>: <span class="float">7px</span>;
+}
+
+<span class="id">#calculator-container</span> <span class="class">.box</span> <span class="class">.title</span> {
+    <span class="key">color</span>:<span class="color">#1a82f7</span>;
+    <span class="key">font-size</span>: <span class="float">25px</span>;
+    <span class="key">margin</span>: <span class="float">5px</span> <span class="value">auto</span>;
+    <span class="key">margin-left</span>: <span class="float">17%</span>;
+    <span class="key">text-transform</span>: <span class="value">uppercase</span>;
+    <span class="key">font-family</span>: <span class="value">consolas</span>;
+}
+
+<span class="id">#calculator-container</span> <span class="class">.box</span> <span class="class">.display</span> <span class="tag">input</span><span class="pseudo-class">:disabled</span>{
+    <span class="key">margin-top</span>: <span class="float">10px</span> ;
+    <span class="key">margin-left</span>:<span class="float">35px</span>;
+    <span class="key">width</span>:<span class="float">80%</span>;
+    <span class="key">height</span>:<span class="float">10%</span>;
+    <span class="key">border</span>:<span class="float">1px</span> <span class="value">solid</span> <span class="value">black</span>;
+    <span class="key">font-size</span>: <span class="float">30px</span>;
+    <span class="key">background-color</span>: <span class="color">#FFF</span>;
+}
+
+<span class="id">#calculator-container</span> <span class="class">.box</span> <span class="class">.calculator-list</span>{
+    <span class="key">margin-top</span>:<span class="float">10%</span>;
+    <span class="key">margin-left</span>: <span class="float">10px</span>;
+    <span class="key">list-style</span>: <span class="value">none</span>;
+}
+
+<span class="id">#calculator-container</span> <span class="class">.box</span> <span class="class">.calculator-list</span> <span class="class">.row</span>{
+    <span class="key">height</span>:<span class="float">50px</span>;
+    <span class="key">width</span>:<span class="float">100%</span>;
+}
+
+<span class="id">#calculator-container</span> <span class="class">.box</span> <span class="class">.calculator-list</span> <span class="class">.row</span> <span class="tag">button</span>{
+    <span class="key">position</span>: <span class="value">relative</span>;
+    <span class="key">height</span>:<span class="float">30px</span>;
+    <span class="key">width</span>:<span class="float">50px</span>;
+    <span class="key">color</span>:<span class="value">white</span>;
+    <span class="key">background-color</span>: <span class="value">white</span>;
+    <span class="key">font-size</span>: <span class="float">16px</span>;
+    <span class="key">margin</span>:<span class="float">0px</span>  <span class="float">5px</span>;
+    <span class="key">border-radius</span>: <span class="float">3px</span>;
+    <span class="key">border</span>:<span class="float">0px</span>;
+    <span class="key">outline</span>:<span class="float">0px</span>;
+      <span class="key">background</span>: <span class="error">-</span><span class="error">w</span><span class="error">e</span><span class="error">b</span><span class="error">k</span><span class="error">i</span><span class="error">t</span><span class="error">-</span><span class="error">r</span><span class="error">a</span><span class="error">d</span><span class="error">i</span><span class="error">a</span><span class="error">l</span><span class="error">-</span><span class="error">g</span><span class="error">r</span><span class="error">a</span><span class="error">d</span><span class="error">i</span><span class="error">e</span><span class="error">n</span><span class="error">t</span>(<span class="value">circle</span>, <span class="color">#1a82f7</span>, <span class="color">#2F2727</span>);
+    <span class="key">background</span>: <span class="error">-</span><span class="error">m</span><span class="error">o</span><span class="error">z</span><span class="error">-</span><span class="error">r</span><span class="error">a</span><span class="error">d</span><span class="error">i</span><span class="error">a</span><span class="error">l</span><span class="error">-</span><span class="error">g</span><span class="error">r</span><span class="error">a</span><span class="error">d</span><span class="error">i</span><span class="error">e</span><span class="error">n</span><span class="error">t</span>(<span class="value">circle</span>, <span class="color">#1a82f7</span>, <span class="color">#2F2727</span>);
+       <span class="key">background</span>: <span class="error">-</span><span class="error">m</span><span class="error">s</span><span class="error">-</span><span class="error">r</span><span class="error">a</span><span class="error">d</span><span class="error">i</span><span class="error">a</span><span class="error">l</span><span class="error">-</span><span class="error">g</span><span class="error">r</span><span class="error">a</span><span class="error">d</span><span class="error">i</span><span class="error">e</span><span class="error">n</span><span class="error">t</span>(<span class="value">circle</span>, <span class="color">#1a82f7</span>, <span class="color">#2F2727</span>);
+}
+
+<span class="id">#calculator-container</span> <span class="class">.box</span> <span class="class">.calculator-list</span> <span class="class">.row</span> <span class="tag">button</span><span class="pseudo-class">:active</span>{
+    <span class="key">top</span>:<span class="float">4px</span>;
+    <span class="key">border</span>:<span class="float">0px</span>;
+    <span class="key">outline</span>:<span class="float">0px</span>;
+}
+
+<span class="id">#calculator-container</span> <span class="class">.box</span> <span class="class">.calculator-list</span> <span class="class">.row</span> <span class="id">#equals-btn</span>{
+    <span class="key">width</span>: <span class="float">50%</span>;
+    <span class="key">height</span>: <span class="float">40px</span>;
+    <span class="key">margin</span>: <span class="float">0</span> <span class="float">20%</span>;
+}
+<span class="id">#calculator-container</span> <span class="class">.box</span> <span class="class">.calculator-list</span> <span class="class">.row</span> <span class="class">.symbols</span>{
+    <span class="key">font-size</span>: <span class="float">17px</span>;
+    <span class="key">font-size</span>: <span class="float">20px</span>;
+}
+</pre></td>
+</tr></table>
+</div>
+
+<p>Okay now we can click tiny little buttons on our beautiful calculator but it doesn’t do much. For that we will have to write some javascript. And remember </p>
+
+<blockquote>
+  <p>With great javascript comes awesome unit tests!</p>
+</blockquote>
+
+<p>So we will write all our javascript code in our <code>Calculator.js</code> file. we are going to use jQuery which is present in <code>~/Calculator/js/lib/jQuery.js</code> and we will arite our unit tests in <code>~/Calculator/spec/Calculator.spec.js</code></p>
+
+<p>To get a head start on Unit testing with javascript get some basic understanding of Jasmine. Head over to jasmine docs for more info.</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+</pre></td>
+  <td class="code"><pre><span class="comment">/* Calculator.spec.js*/</span>
+
+describe(<span class="string"><span class="delimiter">&quot;</span><span class="content">calculator test suite</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+
+
+});
+
+</pre></td>
+</tr></table>
+</div>
+
+<p>A <code> describe </code> in jasmine is roughly similar to a jUnit TestCase in java. But it differs in the aspect that you can actually nest the describe blocks.
+It is a good idea to separe the logically different functionalities in different describe blocks.</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+<strong><a href="#n10" name="n10">10</a></strong>
+<a href="#n11" name="n11">11</a>
+<a href="#n12" name="n12">12</a>
+<a href="#n13" name="n13">13</a>
+</pre></td>
+  <td class="code"><pre><span class="comment">/* Calculator.spec.js*/</span>
+
+describe(<span class="string"><span class="delimiter">&quot;</span><span class="content">calculator test suite</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+
+    it(<span class="string"><span class="delimiter">&quot;</span><span class="content">exposes calculator controller</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+
+        <span class="keyword">var</span> calculator  = <span class="keyword">new</span> Calculator();
+        expect(calculator).toBeDefined();
+
+    });
+
+});
+
+</pre></td>
+</tr></table>
+</div>
+
+<p>Here the <code>it</code> block is the actual test that is trying to instantiate the calculator controller. the <code>expect()</code> and <code> toBedefined()</code> are called as jasmine matchers. There are a bunch of them. You can also write your own custom matchers.</p>
+
+<p>Now go to the root of your directory. and type <code> testem </code>.
+This will run our tests on the browsers that we have configured in <code>testem.json</code> file.</p>
+
+<p>After running the test it should show test failure. This is what we expect at this point.  The test is failing because it can not find the Calculator() function that we are trying to invoke because it doesn’t exist yet.</p>
+
+<p>Let’s write code for fixing this failing test.</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+<strong><a href="#n10" name="n10">10</a></strong>
+</pre></td>
+  <td class="code"><pre>
+(<span class="keyword">function</span>(){
+
+    <span class="keyword">function</span> <span class="function">Calculator</span>(){
+
+    }    
+
+    window.Calculator = Calculator;
+
+})();
+</pre></td>
+</tr></table>
+</div>
+
+<p>We have wrapped our Calcualator function inside a closure to make sure that we are working in an isolated scope and we are not polluting global namespace. 
+It is always a good idea to wrap your code inside a closure.</p>
+
+<p>Also note the closing brackets at the end , this is a classic <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Closures">IIFE</a>.</p>
+
+<p>Notice the last line which says <code>window.Calculator = Calculator;</code>.
+What this is doing is, it is attaching our controller to the global <code>window</code>  object which makesBlog sure that it is accessible out side our closure.</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+<strong><a href="#n10" name="n10">10</a></strong>
+<a href="#n11" name="n11">11</a>
+<a href="#n12" name="n12">12</a>
+<a href="#n13" name="n13">13</a>
+<a href="#n14" name="n14">14</a>
+<a href="#n15" name="n15">15</a>
+<a href="#n16" name="n16">16</a>
+<a href="#n17" name="n17">17</a>
+<a href="#n18" name="n18">18</a>
+<a href="#n19" name="n19">19</a>
+</pre></td>
+  <td class="code"><pre><span class="comment">/* Calculator.spec.js*/</span>
+
+describe(<span class="string"><span class="delimiter">&quot;</span><span class="content">calculator test suite</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+
+    it(<span class="string"><span class="delimiter">&quot;</span><span class="content">exposes calculator controller</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+
+        <span class="keyword">var</span> calculator  = <span class="keyword">new</span> Calculator();
+        expect(calculator).toBeDefined();
+    });
+
+    it(<span class="string"><span class="delimiter">&quot;</span><span class="content">adds two numbers</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+        <span class="keyword">var</span> calculator  = <span class="keyword">new</span> Calculator();
+        <span class="keyword">var</span> num1 = <span class="float">123.321</span>;
+        <span class="keyword">var</span> num2 = <span class="float">123.123</span>;
+        <span class="keyword">var</span> result = calculator.add(num1);
+        expect(result).toEqual(num1+num2);
+    })
+
+});
+</pre></td>
+</tr></table>
+</div>
+
+<p>Now go ahead and check your terminal/console or web interface if you prefer that. You will see a test failure because the <code>.add()</code> method does not exist yet. Let’s write that method.</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+<strong><a href="#n10" name="n10">10</a></strong>
+<a href="#n11" name="n11">11</a>
+</pre></td>
+  <td class="code"><pre>(<span class="keyword">function</span>(){
+
+    <span class="keyword">function</span> <span class="function">Calculator</span>(){
+
+    }
+
+    Calculator.   
+
+    window.Calculator = Calculator;
+
+})();
+</pre></td>
+</tr></table>
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>
