@@ -1,9 +1,9 @@
-if(!window.jQuery){ throw Error('This blog needs jQuery')};
+if(!window.jQuery){ throw Error('This blog needs jQuery');}
 (function($){
 
 	function BlogController(){
 
-	}; 
+	} 
 
 	BlogController.prototype.stickyNavigation = function(){
 	var offset = $('#navigation').offset().top;
@@ -16,7 +16,7 @@ if(!window.jQuery){ throw Error('This blog needs jQuery')};
 				$('#navigation').removeClass('fixed');
 				$('#main').css('margin-top','0px');
 			}
-		})
+		});
 	};
 
 	BlogController.prototype.bindActiveLine = function(){
