@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://abhishekmulay.github.io/sitemap.xml 
+Sitemap: abhishekmulay.com/sitemap.xml 
