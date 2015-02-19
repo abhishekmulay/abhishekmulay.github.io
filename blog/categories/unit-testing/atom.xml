@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Unit Testing | Abhishek Mulay]]></title>
-  <link href="www.abhishekmulay.com/blog/categories/unit-testing/atom.xml" rel="self"/>
-  <link href="www.abhishekmulay.com/"/>
-  <updated>2015-02-19T18:16:16+05:30</updated>
-  <id>www.abhishekmulay.com/</id>
+  <link href="http://www.abhishekmulay.com/blog/categories/unit-testing/atom.xml" rel="self"/>
+  <link href="http://www.abhishekmulay.com/"/>
+  <updated>2015-02-19T20:43:43+05:30</updated>
+  <id>http://www.abhishekmulay.com/</id>
   <author>
     <name><![CDATA[Abhishek Mulay]]></name>
     <email><![CDATA[abhishekmulay1991@yahoo.in]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Javascript Unit Testing With Jasmine]]></title>
-    <link href="www.abhishekmulay.com/blog/2014/12/13/javascript-unit-testing-with-jasmine/"/>
+    <link href="http://www.abhishekmulay.com/blog/2014/12/13/javascript-unit-testing-with-jasmine/"/>
     <updated>2014-12-13T12:32:12+05:30</updated>
-    <id>www.abhishekmulay.com/blog/2014/12/13/javascript-unit-testing-with-jasmine</id>
+    <id>http://www.abhishekmulay.com/blog/2014/12/13/javascript-unit-testing-with-jasmine</id>
     <content type="html"><![CDATA[<p>In today’s world javascript is truly ubiquitous. There has been a proliferation of client side javascript MVC/MVW frameworks. From the mysterious world of web browsers javascript has made its way to the backend servers, with Node js becoming more poplular the future of javascript seems to be really bright.</p>
 
 <p>Now coming to the fun part , people used to think Jvascript is a toy language and I don’t need to test my javascript because ,hey I have used jQuery in my code which makes it crossbrowser compatible and makes unicorns ride on the rainbows.</p>
