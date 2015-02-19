@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>abhishekmulay.com/blog/2014/12/13/javascript-unit-testing-with-jasmine/</loc>
+    <loc>www.abhishekmulay.com/blog/2014/12/13/javascript-unit-testing-with-jasmine/</loc>
     <lastmod>2014-12-13T12:32:12+05:30</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>abhishekmulay.com/blog/2014/10/25/skipping-library-framework-javascript-while-debugging/</loc>
+    <loc>www.abhishekmulay.com/blog/2014/10/25/skipping-library-framework-javascript-while-debugging/</loc>
     <lastmod>2014-10-25T00:00:00+05:30</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>abhishekmulay.com/blog/2014/10/25/breakpoints-on-DOM-mutation-events/</loc>
+    <loc>www.abhishekmulay.com/blog/2014/10/25/breakpoints-on-DOM-mutation-events/</loc>
     <lastmod>2014-10-25T00:00:00+05:30</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>abhishekmulay.com/404.html</loc>
-    <lastmod>2015-02-13T15:57:26+05:30</lastmod>
+    <loc>www.abhishekmulay.com/404.html</loc>
+    <lastmod>2015-02-19T18:16:16+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>abhishekmulay.com/</loc>
-    <lastmod>2015-02-13T15:57:26+05:30</lastmod>
+    <loc>www.abhishekmulay.com/</loc>
+    <lastmod>2015-02-19T18:16:16+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>abhishekmulay.com/blog/archives/</loc>
-    <lastmod>2015-02-13T15:57:26+05:30</lastmod>
+    <loc>www.abhishekmulay.com/blog/archives/</loc>
+    <lastmod>2015-02-19T18:16:16+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>abhishekmulay.com/about/</loc>
-    <lastmod>2015-02-13T15:57:26+05:30</lastmod>
+    <loc>www.abhishekmulay.com/about/</loc>
+    <lastmod>2015-02-19T18:16:16+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

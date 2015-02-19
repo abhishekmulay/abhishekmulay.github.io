@@ -971,10 +971,26 @@ article > footer p.meta {
   padding: 0 .3em;
 }
 
+.sharing {
+  padding: 10px;
+  margin-bottom: 15px;
+}
 p.meta + .sharing {
   padding-top: 1em;
   padding-left: 0;
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAABCAQAAAAGVCQYAAAAD0lEQVQIW2NIK2YAA2rRAHDaCHv5QuthAAAAAElFTkSuQmCC') top left repeat-x;
+  border: 1px solid #eeeeee;
+  background-color: #f2f2f2;
+}
+.sharing .fb_iframe_widget {
+  top: -8px;
+  width: 30%;
+}
+.sharing .twitter-tweet-button {
+  width: 20% !important;
+  padding-left: 5%;
+}
+.sharing #___plusone_0 {
+  width: 20% !important;
 }
 
 #fb-root {

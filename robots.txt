@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: abhishekmulay.com/sitemap.xml 
+Sitemap: www.abhishekmulay.com/sitemap.xml 
