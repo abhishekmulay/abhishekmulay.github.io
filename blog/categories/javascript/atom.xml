@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Javascript | Abhishek Mulay]]></title>
   <link href="http://www.abhishekmulay.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://www.abhishekmulay.com/"/>
-  <updated>2015-02-19T20:43:43+05:30</updated>
+  <updated>2015-02-20T17:31:18+05:30</updated>
   <id>http://www.abhishekmulay.com/</id>
   <author>
     <name><![CDATA[Abhishek Mulay]]></name>
@@ -20,7 +20,7 @@
     <id>http://www.abhishekmulay.com/blog/2014/12/13/javascript-unit-testing-with-jasmine</id>
     <content type="html"><![CDATA[<p>In today’s world javascript is truly ubiquitous. There has been a proliferation of client side javascript MVC/MVW frameworks. From the mysterious world of web browsers javascript has made its way to the backend servers, with Node js becoming more poplular the future of javascript seems to be really bright.</p>
 
-<p>Now coming to the fun part , people used to think Jvascript is a toy language and I don’t need to test my javascript because ,hey I have used jQuery in my code which makes it crossbrowser compatible and makes unicorns ride on the rainbows.</p>
+<p>Now coming to the fun part , people used to think Javascript is a toy language and I don’t need to test my javascript because ,hey I have used jQuery in my code which makes it crossbrowser compatible and makes unicorns ride on the rainbows.</p>
 
 <p>Any real web developer who has been fortunate (?) enough to debug a random javascript error in a large javascript codebase will definitely tell you it really sucks to debug javascript code when it has a lot of codependant modules and no tests to guide you and especially when the code is written by somebody else which is generally the situation in enterprise world.
 I can not imagine writting an enterprise grade web application without testing 	javascript. 

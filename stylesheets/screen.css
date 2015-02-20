@@ -384,12 +384,6 @@ body > header, body > nav, body > footer, body #content > article, body #content
   padding-left: 18px;
   padding-right: 18px;
 }
-@media only screen and (min-width: 300px) {
-  body > header #main-footer, body > nav #main-footer, body > footer #main-footer, body #content > article #main-footer, body #content > div > article #main-footer, body #content > div > section #main-footer {
-    height: auto;
-    line-height: auto;
-  }
-}
 @media only screen and (min-width: 480px) {
   body > header, body > nav, body > footer, body #content > article, body #content > div > article, body #content > div > section {
     padding-left: 25px;
@@ -2485,4 +2479,10 @@ ol.CodeRay li {
 
 .CodeRay .line-numbers pre a:last-child {
   display: none;
+}
+
+@media only screen and (min-width: 480px) {
+  #main-footer .credit {
+    display: none;
+  }
 }
