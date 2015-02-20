@@ -1723,7 +1723,7 @@ ul.subscription li:first-child {
   width: 25%;
 }
 ul.subscription li:last-child {
-  width: 64%;
+  width: 60%;
 }
 ul.subscription li a[rel=subscribe-rss] {
   height: 64px;
@@ -1870,6 +1870,7 @@ body > footer p:last-child {
   display: inline-block;
   width: 57%;
   margin-top: 10px;
+  padding-left: 10px;
 }
 .about:after {
   clear: both;
@@ -1884,7 +1885,7 @@ body > footer p:last-child {
   .about p {
     margin-top: 5px;
     width: 100%;
-    padding: 0;
+    padding: 5px 10px 0px 10px;
   }
 }
 /* overrides of the lousy styles from _syntax.scss */
@@ -2481,7 +2482,7 @@ ol.CodeRay li {
   display: none;
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (max-width: 480px) {
   #main-footer .credit {
     display: none;
   }
