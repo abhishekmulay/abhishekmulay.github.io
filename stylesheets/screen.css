@@ -787,6 +787,9 @@ body > nav ul {
 article {
   padding-top: 1em;
 }
+article .entry-content {
+  text-align: justify;
+}
 article header {
   position: relative;
   padding-top: 2em;
@@ -823,6 +826,7 @@ article header p.meta {
 article h2 {
   padding-top: 0.8em;
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAABCAQAAAAGVCQYAAAAD0lEQVQIW2NIK2YAA2rRAHDaCHv5QuthAAAAAElFTkSuQmCC') top left repeat-x;
+  text-align: left;
 }
 .entry-content article h2:first-child, article header + h2 {
   padding-top: 0;
