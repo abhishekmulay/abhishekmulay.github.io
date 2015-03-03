@@ -6,6 +6,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>http://www.abhishekmulay.com/blog/2014/11/24/this-is-sparta-understanding-context-in-javascript/</loc>
+    <lastmod>2014-11-24T17:42:27+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>http://www.abhishekmulay.com/blog/2014/10/25/skipping-library-framework-javascript-while-debugging/</loc>
     <lastmod>2014-10-25T00:00:00+05:30</lastmod>
     <priority>0.8</priority>
@@ -17,25 +22,25 @@
   </url>
   <url>
     <loc>http://www.abhishekmulay.com/404.html</loc>
-    <lastmod>2015-02-20T18:04:56+05:30</lastmod>
+    <lastmod>2015-03-02T22:28:15+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://www.abhishekmulay.com/</loc>
-    <lastmod>2015-02-20T18:04:56+05:30</lastmod>
+    <lastmod>2015-03-02T22:28:15+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://www.abhishekmulay.com/blog/archives/</loc>
-    <lastmod>2015-02-20T18:04:56+05:30</lastmod>
+    <lastmod>2015-03-02T22:28:15+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://www.abhishekmulay.com/about/</loc>
-    <lastmod>2015-02-20T18:04:56+05:30</lastmod>
+    <lastmod>2015-03-02T22:28:15+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

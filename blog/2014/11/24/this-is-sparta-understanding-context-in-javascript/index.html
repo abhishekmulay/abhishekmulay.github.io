@@ -5,10 +5,10 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Chrome Dev Tools - Abhishek Mulay</title>
+  <title>&#8216;This&#8217; Is Sparta : Understanding &#8216;Context&#8217; in Javascript - Abhishek Mulay</title>
   <meta name="author" content="Abhishek Mulay">
 
-<meta name="description" content="Category: chrome dev tools">
+<meta name="description" content="A tech blog about latest and greatest in the world of technology!">
 <meta name="keywords" content="key 1, key 2, key 3, key 4, key 5">
 
 
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.abhishekmulay.com/blog/categories/chrome-dev-tools">
+  <link rel="canonical" href="http://www.abhishekmulay.com/blog/2014/11/24/this-is-sparta-understanding-context-in-javascript">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/AbhishekMulay" rel="alternate" title="Abhishek Mulay" type="application/atom+xml">
@@ -74,50 +74,144 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Chrome Dev Tools</h1>
+    
+      <h1 class="entry-title">&#8216;This&#8217; Is Sparta : Understanding &#8216;Context&#8217; in Javascript</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-11-24T17:42:27+05:30'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>5:42 pm</span></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://www.abhishekmulay.com">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>Javascript has came a long way from being a language used for changing the colors after clicking a button in a webpage to being the highest trending language on Github.
+Javascript is sexy but it might bite you if you are not aware of the intricacies of the language.
+For a javascript developer having a good grasp on the basics of the language is very important.
+One of the most important and misunderstood concepts in javascript is <code>context</code>.</p>
 
-  
-  <h2>2014</h2>
+<p>So, without further ado, lets dive deep and understad what is the execution context.
+<!-- more --></p>
 
-<article>
-  
-<h1><a href="/blog/2014/10/25/skipping-library-framework-javascript-while-debugging/">Skipping Library / Framework Javascript Code While Debugging</a></h1>
-<time datetime="2014-10-25T00:00:00+05:30" pubdate><span class='month'>Oct</span> <span class='day'>25</span> <span class='year'>2014</span></time>
+<p>In on senetence : </p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/chrome-dev-tools/'>chrome dev tools</a>, <a class='category' href='/blog/categories/tools/'>tools</a></span>
-</footer>
+<blockquote>
+  <p>context in javascript is the value of  <code>this</code> keyword.</p>
+</blockquote>
 
+<p>If you are insecure and only trust the official word, here is the definition from official ECMAScript specification.</p>
 
-</article>
+<blockquote>
+  <p>The this keyword evaluates to the value of the <code>ThisBinding</code> of the current execution context.</p>
 
+  <p><strong> 11.1.1  The <code>this</code> keyword</strong> - <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-11.1.1">ECMAScript Language Specification</a></p>
+</blockquote>
 
+<p>Okay now for many of the people coming from java/C# like background this might sound weird but in wonderful world of javascript the <code>this</code> can have different values depending upon the scope in which it was accessed. In most cases, the value of <code>this</code> is determined by how a function is called. </p>
 
-<article>
-  
-<h1><a href="/blog/2014/10/25/breakpoints-on-DOM-mutation-events/">Breakpoints on DOM Mutation Events</a></h1>
-<time datetime="2014-10-25T00:00:00+05:30" pubdate><span class='month'>Oct</span> <span class='day'>25</span> <span class='year'>2014</span></time>
+<p>There are 4 possible execution contexts</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/chrome-dev-tools/'>chrome dev tools</a>, <a class='category' href='/blog/categories/tools/'>tools</a></span>
-</footer>
+<!-- + Global context
++ Function context
++ Constructor context
++ A DOM Event handler -->
 
+<h2 id="global-context">Global context</h2>
 
-</article>
+<p>By default if you access <code>this</code> (outside of any function), then it refers to global object , in browserland it is the <code>window</code> object.</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+</pre></td>
+  <td class="code"><pre>console.log(<span class="local-variable">this</span>); <span class="comment">// Window {top: Window, window: Window, location: Location, external: Object, chrome: Object…}</span>
+</pre></td>
+</tr></table>
+</div>
+
+<p>Any variable written in the global scope becomes a global object. </p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+</pre></td>
+  <td class="code"><pre>name  = <span class="string"><span class="delimiter">&quot;</span><span class="content">Jules Winfield</span><span class="delimiter">&quot;</span></span>;
+console.log(Window.name);  <span class="comment">// &quot;Jules Winfield&quot;</span>
+</pre></td>
+</tr></table>
+</div>
+
+<p>This is one of the worst parts of the language. Closures are used to save the souls which have wondered down the perilous path of using global variables.</p>
+
+<h2 id="function-context">Function context</h2>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Abhishek Mulay</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-11-24T17:42:27+05:30'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>5:42 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/javascript/'>javascript</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.abhishekmulay.com/blog/2014/11/24/this-is-sparta-understanding-context-in-javascript/" data-via="MulayAbhishek" data-counturl="http://www.abhishekmulay.com/blog/2014/11/24/this-is-sparta-understanding-context-in-javascript/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/10/25/skipping-library-framework-javascript-while-debugging/" title="Previous Post: Skipping Library / Framework javascript code while debugging">&laquo; Skipping Library / Framework javascript code while debugging</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/12/13/javascript-unit-testing-with-jasmine/" title="Next Post: Javascript unit testing with Jasmine">Javascript unit testing with Jasmine &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -174,7 +268,7 @@
 
 </section><section class="about" itemscope itemtype="http://data-vocabulary.org/Person">
   <h1>About Me</h1>
-	  <img class="about-img" src="/images/small.png">
+	  <img class="about-img" src="/images/about/small.png">
   <p>
   	Hi I am <span itemprop="name">Abhishek Mulay</span>,
   	I am a <span itemprop="title">Software Developer </span>, a movie buff, a foodie and an ardent TV watcher. 
@@ -187,6 +281,10 @@
     
       <li class="post">
         <a href="/blog/2014/12/13/javascript-unit-testing-with-jasmine/">Javascript Unit Testing With Jasmine</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/24/this-is-sparta-understanding-context-in-javascript/">&#8216;This&#8217; Is Sparta : Understanding &#8216;Context&#8217; in Javascript</a>
       </li>
     
       <li class="post">
@@ -222,7 +320,10 @@
       var disqus_shortname = 'abhishekmulay';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.abhishekmulay.com/blog/2014/11/24/this-is-sparta-understanding-context-in-javascript/';
+        var disqus_url = 'http://www.abhishekmulay.com/blog/2014/11/24/this-is-sparta-understanding-context-in-javascript/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

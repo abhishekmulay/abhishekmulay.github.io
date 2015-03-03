@@ -109,39 +109,29 @@ I can not imagine writting an enterprise grade web application without testing 	
 
 <h2 id="what-do-i-need-to-test-my-javascript--aka-tools-and-environment-setup">What do I need to test my javascript ? aka tools and environment setup.</h2>
 
-<p>If you are on a mac I strongly recommend you to install <a href="http://brew.sh/">brew</a> which will make your life super easy.</p>
+<p>If you are on a mac I strongly recommend installing <a href="http://brew.sh/">brew</a> which will make your life super easy.</p>
 
 <h3 id="install-node-js">Install Node js</h3>
 
 <p>If you have not installed Node yet , please do so by going to their
-<a href="http://nodejs.org/">website</a> and installing node suitable to your platform (Windows/Linux etc).</p>
+<a href="http://nodejs.org/">website</a> and installing node suitable to your platform (Windows/Linux etc).
+If you are on a mac you can do it very easily with brew 
+<code>brew install node</code></p>
 
-<p>If you are on a mac you can do it very easily with brew 
-<code> brew install node   </code></p>
-
-<p>Check if node is installed by running  following comamnd in your terminal/command prompt.  <code>node -v</code></p>
+<p>Check if node is installed by running  following comamnd in your terminal/command prompt  <code>node -v</code></p>
 
 <h3 id="install-a-test-runner">Install a test runner</h3>
 
 <p>Now what is a test runner ? A test runner is a program which runs your tests for you. If you are into Continuous Integration and Continuous Delivery process, a test runner which automates tests is an absolutely must have tool.</p>
 
-<p>A test runner not oly runs your tests but it also provides real time feedback if something fails. You can configure your test runner to run tests on all your target browsers , and for continuous integration purposes if you want to have your tests run automatically without opening an actual browser you can you a headless browser like Phantomjs.</p>
+<p>A test runner not oly runs your tests but it also provides real time feedback if something fails. You can configure your test runner to run tests on all your target browsers , and for continuous integration purposes if you want to have your tests run automatically without opening an actual browser you can you a headless browser like Phantomjs.
+For this tutorial we are going to use  <a href="https://github.com/airportyh/testem">Testem</a> which is easy and quick to get started with. There are many other test runners like <a href="http://karma-runner.github.io/0.12/index.html">Karma </a> , <a href="http://www.venusjs.org/">Venus</a> which are also quite popular.</p>
 
-<p>For this tutorial we are going to use  <a href="https://github.com/airportyh/testem">Testem</a> which is easy and quick to get started with. There are many other test runners like <a href="http://karma-runner.github.io/0.12/index.html">Karma </a> , <a href="http://www.venusjs.org/">Venus</a> which have many more configurations available.</p>
+<p>Use this simple command for installing testem , <code>npm install -g testem </code>. The <code>-g</code> flag installs the node module globally and makes sure that it is invokable from anywhere from the command line.
+Now we are all set with our tools to write our first test case.	But before moving on there are couple of things that we should look at.</p>
 
-<p>Use this simple command for installing testem</p>
-
-<p><code>npm install -g testem </code></p>
-
-<p>The <code> -g </code> flag installs the node module globally and makes sure that it is invokable from anywhere from the command line.</p>
-
-<p>Now we are all set with our tools to write our first test case.	But before moving on there are couple of things that we should look at.</p>
-
-<p>All the cool kids are doing <code>TDD / BDD</code> these days. Now What the heck is this <code>TDD / BDD </code>?</p>
-
-<p><code>TDD / BDD</code> stands for <code>Test(Behaviour) Driven Development. </code></p>
-
-<p>I don’t want to get into theorotical detials of TDD/BDD and kill the enthusiasm. This a topic for a separate blog post. </p>
+<p>All the cool kids are doing <code>TDD / BDD</code> these days. We will also follow test driven development approach to create our calculator.
+I don’t want to get into theorotical detials of TDD/BDD and kill the enthusiasm. This is a topic for a separate blog post. </p>
 
 <p>Don’t worry just follow following 3 points and you will be good to go.</p>
 
@@ -157,15 +147,15 @@ I can not imagine writting an enterprise grade web application without testing 	
   </li>
 </ol>
 
-<div class="bogus-wrapper"><notextile><figure class="tdd-image">
-<img src="http://codeguide.hu//wp-content/uploads/tdd_flow.gif" />
+<div class="bogus-wrapper"><notextile><figure class="blog-image">
+    <img src="/images/2014-12-13/tdd.png" height="400px" width="500px" />
 </figure></notextile></div>
 
 <p>I know you are getting tired of this theory. Lets jump into code and get our hands dirty.</p>
 
 <p>Lets create a repository called <code>Calculator</code>. Create folder structure like this. We are going to keep all our code in here. </p>
 
-<p><img src="/images/folder-structure.png" /></p>
+<p><img src="/images/2014-12-13/folder-structure.png" /></p>
 
 <p>For this tutorial we are going to create a simple Calculator using plain HTML, CSS and JS.</p>
 
@@ -267,6 +257,12 @@ This contains basic markup for the calculator.</p>
 <strong><a href="#n60" name="n60">60</a></strong>
 <a href="#n61" name="n61">61</a>
 <a href="#n62" name="n62">62</a>
+<a href="#n63" name="n63">63</a>
+<a href="#n64" name="n64">64</a>
+<a href="#n65" name="n65">65</a>
+<a href="#n66" name="n66">66</a>
+<a href="#n67" name="n67">67</a>
+<a href="#n68" name="n68">68</a>
 </pre></td>
   <td class="code"><pre><span class="tag">&lt;html&gt;</span>
 
@@ -283,7 +279,6 @@ This contains basic markup for the calculator.</p>
                 Calculator Widget
             <span class="tag">&lt;/p&gt;</span>
             <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">display</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-                <span class="tag">&lt;input</span>  <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">123</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">display-box</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">placeholder</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Enter number</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">disabled</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">disabled</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
                 <span class="tag">&lt;input</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">display-box</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">placeholder</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Enter number</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">disabled</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">disabled</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
             <span class="tag">&lt;/div&gt;</span>
 
@@ -292,26 +287,33 @@ This contains basic markup for the calculator.</p>
                     <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">7-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>7<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
                     <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">8-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>8<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
                     <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">9-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>9<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
-                    <span class="tag">&lt;span</span> <span class="tag">&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">add-btn</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">symbols operator</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">data-operator</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ADD</span><span class="delimiter">&quot;</span></span> <span class="tag">&gt;</span>+<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                    <span class="tag">&lt;span&gt;</span>
+                        <span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">add-btn</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">symbols operator</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">data-operator</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ADD</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>+<span class="tag">&lt;/button&gt;</span>
+                    <span class="tag">&lt;/span&gt;</span>
                 <span class="tag">&lt;/li&gt;</span>
                 <span class="tag">&lt;li</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">row</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
                     <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">4-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>4<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
                     <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>5<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
                     <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">6-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>6<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
-                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sub-button</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">symbols operator</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">data-operator</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SUBTRACT</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>-<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                    <span class="tag">&lt;span&gt;</span>
+                        <span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sub-button</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">symbols operator</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">data-operator</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SUBTRACT</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>-<span class="tag">&lt;/button&gt;</span>
+                    <span class="tag">&lt;/span&gt;</span>
                 <span class="tag">&lt;/li&gt;</span>
                 <span class="tag">&lt;li</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">row</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
                     <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>1<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
                     <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">2-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>2<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
                     <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">3-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>3<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
-                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">multi-btn</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">symbols operator</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">data-operator</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">MULTIPLY</span><span class="delimiter">&quot;</span></span> <span class="tag">&gt;</span>*<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                    <span class="tag">&lt;span&gt;</span>
+                        <span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">multi-btn</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">symbols operator</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">data-operator</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">MULTIPLY</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>*<span class="tag">&lt;/button&gt;</span>
+                    <span class="tag">&lt;/span&gt;</span>
                 <span class="tag">&lt;/li&gt;</span>
                 <span class="tag">&lt;li</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">row</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
                     <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">dot-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>.<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
                     <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">0-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>0<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
                     <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">clear-btn</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">symbols</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>C<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
-                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">clear-btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>C<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
-                    <span class="tag">&lt;span&gt;</span><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">div-btn</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">symbols operator</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">data-operator</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">DIVIDE</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>/<span class="tag">&lt;/button&gt;</span><span class="tag">&lt;/span&gt;</span>
+                    <span class="tag">&lt;span&gt;</span>
+                        <span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">div-btn</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">symbols operator</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">data-operator</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">DIVIDE</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>/<span class="tag">&lt;/button&gt;</span>
+                    <span class="tag">&lt;/span&gt;</span>
                 <span class="tag">&lt;/li&gt;</span>
                 <span class="tag">&lt;li</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">row</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
                     <span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">equals-btn</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">symbols</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>=<span class="tag">&lt;/button&gt;</span>
@@ -418,16 +420,17 @@ This will make our dumb calculator look pretty.</p>
 <a href="#n76" name="n76">76</a>
 <a href="#n77" name="n77">77</a>
 <a href="#n78" name="n78">78</a>
+<a href="#n79" name="n79">79</a>
 </pre></td>
-  <td class="code"><pre><span class="id">#calculator-container</span>{
+  <td class="code"><pre><span class="id">#calculator-wrapper</span>{
     <span class="key">margin</span>: <span class="float">0</span> <span class="value">auto</span>;
     <span class="key">width</span>:<span class="float">350px</span>;
     <span class="key">height</span>:<span class="float">380px</span>;
-    <span class="key">-webkit-box-shadow</span>: <span class="float">10px</span> <span class="float">10px</span> <span class="float">5px</span> <span class="color">#666</span>;
+    <span class="key">box-shadow</span>: <span class="float">10px</span> <span class="float">10px</span> <span class="float">5px</span> <span class="color">#666</span>;
     <span class="key">border-radius</span>: <span class="float">3px</span>;
 }
 
-<span class="id">#calculator-container</span> <span class="class">.box</span>{
+<span class="id">#calculator-wrapper</span> <span class="class">.box</span>{
     <span class="key">background-color</span>: <span class="color">#EEE</span>;
     <span class="key">margin</span>: <span class="float">5px</span>;
     <span class="key">width</span>:<span class="float">100%</span>;
@@ -436,7 +439,7 @@ This will make our dumb calculator look pretty.</p>
     <span class="key">border-radius</span>: <span class="float">7px</span>;
 }
 
-<span class="id">#calculator-container</span> <span class="class">.box</span> <span class="class">.title</span> {
+<span class="id">#calculator-wrapper</span> <span class="class">.box</span> <span class="class">.title</span> {
     <span class="key">color</span>:<span class="color">#1a82f7</span>;
     <span class="key">font-size</span>: <span class="float">25px</span>;
     <span class="key">margin</span>: <span class="float">5px</span> <span class="value">auto</span>;
@@ -445,7 +448,7 @@ This will make our dumb calculator look pretty.</p>
     <span class="key">font-family</span>: <span class="value">consolas</span>;
 }
 
-<span class="id">#calculator-container</span> <span class="class">.box</span> <span class="class">.display</span> <span class="tag">input</span><span class="pseudo-class">:disabled</span>{
+<span class="id">#calculator-wrapper</span> <span class="class">.box</span> <span class="class">.display</span> <span class="tag">input</span><span class="pseudo-class">:disabled</span>{
     <span class="key">margin-top</span>: <span class="float">10px</span> ;
     <span class="key">margin-left</span>:<span class="float">35px</span>;
     <span class="key">width</span>:<span class="float">80%</span>;
@@ -455,18 +458,18 @@ This will make our dumb calculator look pretty.</p>
     <span class="key">background-color</span>: <span class="color">#FFF</span>;
 }
 
-<span class="id">#calculator-container</span> <span class="class">.box</span> <span class="class">.calculator-list</span>{
+<span class="id">#calculator-wrapper</span> <span class="class">.box</span> <span class="class">.calculator-list</span>{
     <span class="key">margin-top</span>:<span class="float">10%</span>;
     <span class="key">margin-left</span>: <span class="float">10px</span>;
     <span class="key">list-style</span>: <span class="value">none</span>;
 }
 
-<span class="id">#calculator-container</span> <span class="class">.box</span> <span class="class">.calculator-list</span> <span class="class">.row</span>{
+<span class="id">#calculator-wrapper</span> <span class="class">.box</span> <span class="class">.calculator-list</span> <span class="class">.row</span>{
     <span class="key">height</span>:<span class="float">50px</span>;
     <span class="key">width</span>:<span class="float">100%</span>;
 }
 
-<span class="id">#calculator-container</span> <span class="class">.box</span> <span class="class">.calculator-list</span> <span class="class">.row</span> <span class="tag">button</span>{
+<span class="id">#calculator-wrapper</span> <span class="class">.box</span> <span class="class">.calculator-list</span> <span class="class">.row</span> <span class="tag">button</span>{
     <span class="key">position</span>: <span class="value">relative</span>;
     <span class="key">height</span>:<span class="float">30px</span>;
     <span class="key">width</span>:<span class="float">50px</span>;
@@ -477,23 +480,24 @@ This will make our dumb calculator look pretty.</p>
     <span class="key">border-radius</span>: <span class="float">3px</span>;
     <span class="key">border</span>:<span class="float">0px</span>;
     <span class="key">outline</span>:<span class="float">0px</span>;
-      <span class="key">background</span>: <span class="error">-</span><span class="error">w</span><span class="error">e</span><span class="error">b</span><span class="error">k</span><span class="error">i</span><span class="error">t</span><span class="error">-</span><span class="error">r</span><span class="error">a</span><span class="error">d</span><span class="error">i</span><span class="error">a</span><span class="error">l</span><span class="error">-</span><span class="error">g</span><span class="error">r</span><span class="error">a</span><span class="error">d</span><span class="error">i</span><span class="error">e</span><span class="error">n</span><span class="error">t</span>(<span class="value">circle</span>, <span class="color">#1a82f7</span>, <span class="color">#2F2727</span>);
+    <span class="key">background</span>: <span class="error">-</span><span class="error">w</span><span class="error">e</span><span class="error">b</span><span class="error">k</span><span class="error">i</span><span class="error">t</span><span class="error">-</span><span class="error">r</span><span class="error">a</span><span class="error">d</span><span class="error">i</span><span class="error">a</span><span class="error">l</span><span class="error">-</span><span class="error">g</span><span class="error">r</span><span class="error">a</span><span class="error">d</span><span class="error">i</span><span class="error">e</span><span class="error">n</span><span class="error">t</span>(<span class="value">circle</span>, <span class="color">#1a82f7</span>, <span class="color">#2F2727</span>);
     <span class="key">background</span>: <span class="error">-</span><span class="error">m</span><span class="error">o</span><span class="error">z</span><span class="error">-</span><span class="error">r</span><span class="error">a</span><span class="error">d</span><span class="error">i</span><span class="error">a</span><span class="error">l</span><span class="error">-</span><span class="error">g</span><span class="error">r</span><span class="error">a</span><span class="error">d</span><span class="error">i</span><span class="error">e</span><span class="error">n</span><span class="error">t</span>(<span class="value">circle</span>, <span class="color">#1a82f7</span>, <span class="color">#2F2727</span>);
-       <span class="key">background</span>: <span class="error">-</span><span class="error">m</span><span class="error">s</span><span class="error">-</span><span class="error">r</span><span class="error">a</span><span class="error">d</span><span class="error">i</span><span class="error">a</span><span class="error">l</span><span class="error">-</span><span class="error">g</span><span class="error">r</span><span class="error">a</span><span class="error">d</span><span class="error">i</span><span class="error">e</span><span class="error">n</span><span class="error">t</span>(<span class="value">circle</span>, <span class="color">#1a82f7</span>, <span class="color">#2F2727</span>);
+    <span class="key">background</span>: <span class="error">-</span><span class="error">m</span><span class="error">s</span><span class="error">-</span><span class="error">r</span><span class="error">a</span><span class="error">d</span><span class="error">i</span><span class="error">a</span><span class="error">l</span><span class="error">-</span><span class="error">g</span><span class="error">r</span><span class="error">a</span><span class="error">d</span><span class="error">i</span><span class="error">e</span><span class="error">n</span><span class="error">t</span>(<span class="value">circle</span>, <span class="color">#1a82f7</span>, <span class="color">#2F2727</span>);
 }
 
-<span class="id">#calculator-container</span> <span class="class">.box</span> <span class="class">.calculator-list</span> <span class="class">.row</span> <span class="tag">button</span><span class="pseudo-class">:active</span>{
+<span class="id">#calculator-wrapper</span> <span class="class">.box</span> <span class="class">.calculator-list</span> <span class="class">.row</span> <span class="tag">button</span><span class="pseudo-class">:active</span>{
     <span class="key">top</span>:<span class="float">4px</span>;
     <span class="key">border</span>:<span class="float">0px</span>;
     <span class="key">outline</span>:<span class="float">0px</span>;
 }
 
-<span class="id">#calculator-container</span> <span class="class">.box</span> <span class="class">.calculator-list</span> <span class="class">.row</span> <span class="id">#equals-btn</span>{
+<span class="id">#calculator-wrapper</span> <span class="class">.box</span> <span class="class">.calculator-list</span> <span class="class">.row</span> <span class="id">#equals-btn</span>{
     <span class="key">width</span>: <span class="float">50%</span>;
     <span class="key">height</span>: <span class="float">40px</span>;
     <span class="key">margin</span>: <span class="float">0</span> <span class="float">20%</span>;
 }
-<span class="id">#calculator-container</span> <span class="class">.box</span> <span class="class">.calculator-list</span> <span class="class">.row</span> <span class="class">.symbols</span>{
+
+<span class="id">#calculator-wrapper</span> <span class="class">.box</span> <span class="class">.calculator-list</span> <span class="class">.row</span> <span class="class">.symbols</span>{
     <span class="key">font-size</span>: <span class="float">17px</span>;
     <span class="key">font-size</span>: <span class="float">20px</span>;
 }
@@ -531,7 +535,7 @@ describe(<span class="string"><span class="delimiter">&quot;</span><span class="
 </tr></table>
 </div>
 
-<p>A <code> describe </code> in jasmine is roughly similar to a jUnit TestCase in java. But it differs in the aspect that you can actually nest the describe blocks.
+<p>A <code>describe</code> in jasmine is roughly similar to a jUnit TestCase in java. But it differs in the aspect that you can actually nest the describe blocks.
 It is a good idea to separe the logically different functionalities in different describe blocks.</p>
 
 <div class="highlighter-coderay"><table class="CodeRay"><tr>
@@ -548,16 +552,18 @@ It is a good idea to separe the logically different functionalities in different
 <a href="#n11" name="n11">11</a>
 <a href="#n12" name="n12">12</a>
 <a href="#n13" name="n13">13</a>
+<a href="#n14" name="n14">14</a>
 </pre></td>
   <td class="code"><pre><span class="comment">/* Calculator.spec.js*/</span>
 
 describe(<span class="string"><span class="delimiter">&quot;</span><span class="content">calculator test suite</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
 
-    it(<span class="string"><span class="delimiter">&quot;</span><span class="content">exposes calculator controller</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+    it(<span class="string"><span class="delimiter">&quot;</span><span class="content">exposes calculator function</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
 
         <span class="keyword">var</span> calculator  = <span class="keyword">new</span> Calculator();
         expect(calculator).toBeDefined();
-
+        expect(<span class="keyword">typeof</span> calculator).toEqual(<span class="string"><span class="delimiter">'</span><span class="content">object</span><span class="delimiter">'</span></span>);
+        expect(<span class="keyword">typeof</span> window.Calculator).toBe(<span class="string"><span class="delimiter">'</span><span class="content">function</span><span class="delimiter">'</span></span>);
     });
 
 });
@@ -566,9 +572,9 @@ describe(<span class="string"><span class="delimiter">&quot;</span><span class="
 </tr></table>
 </div>
 
-<p>Here the <code>it</code> block is the actual test that is trying to instantiate the calculator controller. the <code>expect()</code> and <code> toBedefined()</code> are called as jasmine matchers. There are a bunch of them. You can also write your own custom matchers.</p>
+<p>Here the <code>it</code> block is the actual test that is trying to instantiate the calculator, the <code>expect()</code> and <code>toBedefined()</code> are called as jasmine matchers. There are a bunch of them. You can also write your own custom matchers.</p>
 
-<p>Now go to the root of your directory. and type <code> testem </code>.
+<p>Now go to the root of your directory. and type <code>testem</code>.
 This will run our tests on the browsers that we have configured in <code>testem.json</code> file.</p>
 
 <p>After running the test it should show test failure. This is what we expect at this point.  The test is failing because it can not find the Calculator() function that we are trying to invoke because it doesn’t exist yet.</p>
@@ -586,14 +592,18 @@ This will run our tests on the browsers that we have configured in <code>testem.
 <a href="#n8" name="n8">8</a>
 <a href="#n9" name="n9">9</a>
 <strong><a href="#n10" name="n10">10</a></strong>
+<a href="#n11" name="n11">11</a>
+<a href="#n12" name="n12">12</a>
 </pre></td>
-  <td class="code"><pre>
+  <td class="code"><pre><span class="comment">/* calculator.js */</span>
+
 (<span class="keyword">function</span>(){
 
     <span class="keyword">function</span> <span class="function">Calculator</span>(){
 
     }    
-
+    
+    <span class="comment">//publishing the constructor to global scope.</span>
     window.Calculator = Calculator;
 
 })();
@@ -607,7 +617,179 @@ It is always a good idea to wrap your code inside a closure.</p>
 <p>Also note the closing brackets at the end , this is a classic <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Closures">IIFE</a>.</p>
 
 <p>Notice the last line which says <code>window.Calculator = Calculator;</code>.
-What this is doing is, it is attaching our controller to the global <code>window</code>  object which makesBlog sure that it is accessible out side our closure.</p>
+What this is doing is, it is attaching our calculator to the global <code>window</code>  object which makes sure that it is accessible out side our closure.</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+<strong><a href="#n10" name="n10">10</a></strong>
+<a href="#n11" name="n11">11</a>
+<a href="#n12" name="n12">12</a>
+<a href="#n13" name="n13">13</a>
+<a href="#n14" name="n14">14</a>
+<a href="#n15" name="n15">15</a>
+<a href="#n16" name="n16">16</a>
+<a href="#n17" name="n17">17</a>
+<a href="#n18" name="n18">18</a>
+<a href="#n19" name="n19">19</a>
+<strong><a href="#n20" name="n20">20</a></strong>
+<a href="#n21" name="n21">21</a>
+<a href="#n22" name="n22">22</a>
+<a href="#n23" name="n23">23</a>
+<a href="#n24" name="n24">24</a>
+</pre></td>
+  <td class="code"><pre><span class="comment">/* Calculator.spec.js*/</span>
+
+describe(<span class="string"><span class="delimiter">&quot;</span><span class="content">calculator test suite</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+
+    it(<span class="string"><span class="delimiter">&quot;</span><span class="content">exposes calculator function</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+
+        <span class="keyword">var</span> calculator  = <span class="keyword">new</span> Calculator();
+        expect(calculator).toBeDefined();
+        expect(<span class="keyword">typeof</span> calculator).toEqual(<span class="string"><span class="delimiter">'</span><span class="content">object</span><span class="delimiter">'</span></span>);
+        expect(<span class="keyword">typeof</span> window.Calculator).toBe(<span class="string"><span class="delimiter">'</span><span class="content">function</span><span class="delimiter">'</span></span>);
+    });
+
+    it(<span class="string"><span class="delimiter">&quot;</span><span class="content">adds two numbers</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+        <span class="keyword">var</span> calculator  = <span class="keyword">new</span> Calculator();
+         num1 = <span class="integer">100</span>,
+         num2 = <span class="integer">200</span>,
+         expected= <span class="integer">300</span>,
+
+         result = calculator.add(num1,num2);
+
+        expect(result).toEqual(expected);
+    })  
+
+});
+</pre></td>
+</tr></table>
+</div>
+
+<p>Now go ahead and check your terminal/console or web interface if you prefer that. You will see a test failure because the <code>.add()</code> method does not exist yet. Let’s write that method.</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+<strong><a href="#n10" name="n10">10</a></strong>
+<a href="#n11" name="n11">11</a>
+<a href="#n12" name="n12">12</a>
+<a href="#n13" name="n13">13</a>
+<a href="#n14" name="n14">14</a>
+<a href="#n15" name="n15">15</a>
+</pre></td>
+  <td class="code"><pre><span class="comment">/* calculator.js */</span>
+
+(<span class="keyword">function</span>(){
+
+    <span class="keyword">function</span> <span class="function">Calculator</span>(){
+
+    }
+
+    Calculator.prototype.<span class="function">add</span> = <span class="keyword">function</span>(num1, num2){
+        <span class="keyword">return</span> num1 + num2;
+    };   
+
+    window.Calculator = Calculator;
+
+})();
+</pre></td>
+</tr></table>
+</div>
+
+<p>At this point our spec passes and you see a nice green message that says <code>passing 2 specs</code>.</p>
+
+<p>Now what if I pass two strings as numbers? Let’s see what happens.</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+<strong><a href="#n10" name="n10">10</a></strong>
+<a href="#n11" name="n11">11</a>
+<a href="#n12" name="n12">12</a>
+<a href="#n13" name="n13">13</a>
+<a href="#n14" name="n14">14</a>
+<a href="#n15" name="n15">15</a>
+<a href="#n16" name="n16">16</a>
+<a href="#n17" name="n17">17</a>
+<a href="#n18" name="n18">18</a>
+<a href="#n19" name="n19">19</a>
+<strong><a href="#n20" name="n20">20</a></strong>
+<a href="#n21" name="n21">21</a>
+<a href="#n22" name="n22">22</a>
+<a href="#n23" name="n23">23</a>
+<a href="#n24" name="n24">24</a>
+<a href="#n25" name="n25">25</a>
+<a href="#n26" name="n26">26</a>
+<a href="#n27" name="n27">27</a>
+<a href="#n28" name="n28">28</a>
+<a href="#n29" name="n29">29</a>
+<strong><a href="#n30" name="n30">30</a></strong>
+<a href="#n31" name="n31">31</a>
+<a href="#n32" name="n32">32</a>
+<a href="#n33" name="n33">33</a>
+<a href="#n34" name="n34">34</a>
+</pre></td>
+  <td class="code"><pre><span class="comment">/* Calculator.spec.js*/</span>
+
+describe(<span class="string"><span class="delimiter">&quot;</span><span class="content">calculator test suite</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+
+    it(<span class="string"><span class="delimiter">&quot;</span><span class="content">should expose calculator function</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+        <span class="keyword">var</span> calculator  = <span class="keyword">new</span> Calculator();
+        expect(calculator).toBeDefined();
+        expect(<span class="keyword">typeof</span> calculator).toEqual(<span class="string"><span class="delimiter">'</span><span class="content">object</span><span class="delimiter">'</span></span>);
+        expect(<span class="keyword">typeof</span> window.Calculator).toBe(<span class="string"><span class="delimiter">'</span><span class="content">function</span><span class="delimiter">'</span></span>);
+    });
+
+    it(<span class="string"><span class="delimiter">&quot;</span><span class="content">should add two numbers</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+        <span class="keyword">var</span> calculator  = <span class="keyword">new</span> Calculator(),
+         num1 = <span class="integer">100</span>,
+         num2 = <span class="integer">200</span>,
+         expected= <span class="integer">300</span>,
+
+         result = calculator.add(num1,num2);
+
+        expect(result).toEqual(expected);
+    }) 
+
+    it(<span class="string"><span class="delimiter">&quot;</span><span class="content">should add two numbers passed in a strings</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+        <span class="keyword">var</span> calculator  = <span class="keyword">new</span> Calculator(),
+         num1 = <span class="string"><span class="delimiter">'</span><span class="content">100</span><span class="delimiter">'</span></span>,
+         num2 = <span class="string"><span class="delimiter">'</span><span class="content">200</span><span class="delimiter">'</span></span>,
+         expected= <span class="integer">300</span>,
+
+         result = calculator.add(num1,num2);
+
+        expect(result).toEqual(expected);
+    })  
+
+});
+</pre></td>
+</tr></table>
+</div>
+
+<p>Now you will see your console says <code>Expected '100200' to equal 300</code>, that is because instead of adding two numbers, our code is concatenating two strings. Lets fix this.</p>
 
 <div class="highlighter-coderay"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
@@ -630,30 +812,34 @@ What this is doing is, it is attaching our controller to the global <code>window
 <a href="#n18" name="n18">18</a>
 <a href="#n19" name="n19">19</a>
 </pre></td>
-  <td class="code"><pre><span class="comment">/* Calculator.spec.js*/</span>
+  <td class="code"><pre><span class="comment">/* calculator.js */</span>
 
-describe(<span class="string"><span class="delimiter">&quot;</span><span class="content">calculator test suite</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+(<span class="keyword">function</span>(){
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">use strict</span><span class="delimiter">&quot;</span></span>;
 
-    it(<span class="string"><span class="delimiter">&quot;</span><span class="content">exposes calculator controller</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+    <span class="keyword">function</span> <span class="function">Calculator</span>(){
 
-        <span class="keyword">var</span> calculator  = <span class="keyword">new</span> Calculator();
-        expect(calculator).toBeDefined();
-    });
+    };
 
-    it(<span class="string"><span class="delimiter">&quot;</span><span class="content">adds two numbers</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
-        <span class="keyword">var</span> calculator  = <span class="keyword">new</span> Calculator();
-        <span class="keyword">var</span> num1 = <span class="float">123.321</span>;
-        <span class="keyword">var</span> num2 = <span class="float">123.123</span>;
-        <span class="keyword">var</span> result = calculator.add(num1);
-        expect(result).toEqual(num1+num2);
-    })
+    Calculator.prototype.<span class="function">add</span> = <span class="keyword">function</span>(num1,num2){
+        num1 = isNaN(num1) ? <span class="integer">0</span> : parseInt(num1,<span class="integer">10</span>),
+        num2 = isNaN(num1) ? <span class="integer">0</span> : parseInt(num2,<span class="integer">10</span>);
+        <span class="keyword">return</span> num1 + num2;
+    };
 
-});
+    window.Calculator  = Calculator;
+
+})();
+
 </pre></td>
 </tr></table>
 </div>
 
-<p>Now go ahead and check your terminal/console or web interface if you prefer that. You will see a test failure because the <code>.add()</code> method does not exist yet. Let’s write that method.</p>
+<p>Now I am sure you can get creative and write similar test cases for all arithmatic operations.</p>
+
+<p>I want to cover one more  important aspect of javascript unit testing that is testing DOM manipulations. Suppose our calculator has a clear button upon clicking which contents of display screen are removed.</p>
+
+<p>Now lets write a test case for that.</p>
 
 <div class="highlighter-coderay"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
@@ -667,22 +853,194 @@ describe(<span class="string"><span class="delimiter">&quot;</span><span class="
 <a href="#n9" name="n9">9</a>
 <strong><a href="#n10" name="n10">10</a></strong>
 <a href="#n11" name="n11">11</a>
+<a href="#n12" name="n12">12</a>
+<a href="#n13" name="n13">13</a>
+<a href="#n14" name="n14">14</a>
+<a href="#n15" name="n15">15</a>
+<a href="#n16" name="n16">16</a>
+<a href="#n17" name="n17">17</a>
+<a href="#n18" name="n18">18</a>
+<a href="#n19" name="n19">19</a>
+<strong><a href="#n20" name="n20">20</a></strong>
+<a href="#n21" name="n21">21</a>
+<a href="#n22" name="n22">22</a>
+<a href="#n23" name="n23">23</a>
+<a href="#n24" name="n24">24</a>
+<a href="#n25" name="n25">25</a>
+<a href="#n26" name="n26">26</a>
+<a href="#n27" name="n27">27</a>
+<a href="#n28" name="n28">28</a>
+<a href="#n29" name="n29">29</a>
+<strong><a href="#n30" name="n30">30</a></strong>
+<a href="#n31" name="n31">31</a>
+<a href="#n32" name="n32">32</a>
+<a href="#n33" name="n33">33</a>
+<a href="#n34" name="n34">34</a>
+<a href="#n35" name="n35">35</a>
+<a href="#n36" name="n36">36</a>
+<a href="#n37" name="n37">37</a>
+<a href="#n38" name="n38">38</a>
+<a href="#n39" name="n39">39</a>
+<strong><a href="#n40" name="n40">40</a></strong>
+<a href="#n41" name="n41">41</a>
+<a href="#n42" name="n42">42</a>
+<a href="#n43" name="n43">43</a>
+<a href="#n44" name="n44">44</a>
+<a href="#n45" name="n45">45</a>
+<a href="#n46" name="n46">46</a>
+<a href="#n47" name="n47">47</a>
+<a href="#n48" name="n48">48</a>
 </pre></td>
-  <td class="code"><pre>(<span class="keyword">function</span>(){
+  <td class="code"><pre><span class="comment">/* Calculator.spec.js*/</span>
 
-    <span class="keyword">function</span> <span class="function">Calculator</span>(){
+describe(<span class="string"><span class="delimiter">&quot;</span><span class="content">calculator test suite</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
 
-    }
+    it(<span class="string"><span class="delimiter">&quot;</span><span class="content">should expose calculator function</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+        <span class="keyword">var</span> calculator  = <span class="keyword">new</span> Calculator();
+        expect(calculator).toBeDefined();
+        expect(<span class="keyword">typeof</span> calculator).toEqual(<span class="string"><span class="delimiter">'</span><span class="content">object</span><span class="delimiter">'</span></span>);
+        expect(<span class="keyword">typeof</span> window.Calculator).toBe(<span class="string"><span class="delimiter">'</span><span class="content">function</span><span class="delimiter">'</span></span>);
+    });
 
-    Calculator.   
+    it(<span class="string"><span class="delimiter">&quot;</span><span class="content">should add two numbers</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+        <span class="keyword">var</span> calculator  = <span class="keyword">new</span> Calculator();
+         num1 = <span class="integer">100</span>,
+         num2 = <span class="integer">200</span>,
+         expected= <span class="integer">300</span>,
 
-    window.Calculator = Calculator;
+         result = calculator.add(num1,num2);
 
-})();
+        expect(result).toEqual(expected);
+    }) 
+
+    it(<span class="string"><span class="delimiter">&quot;</span><span class="content">should add two numbers passed in a strings</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+        <span class="keyword">var</span> calculator  = <span class="keyword">new</span> Calculator(),
+         num1 = <span class="string"><span class="delimiter">'</span><span class="content">100</span><span class="delimiter">'</span></span>,
+         num2 = <span class="string"><span class="delimiter">'</span><span class="content">200</span><span class="delimiter">'</span></span>,
+         expected= <span class="integer">300</span>,
+
+         result = calculator.add(num1,num2);
+
+        expect(result).toEqual(expected);
+    })  
+
+    it(<span class="string"><span class="delimiter">&quot;</span><span class="content">should call clear method after clicking clear button</span><span class="delimiter">&quot;</span></span>,<span class="keyword">function</span>(){
+        <span class="keyword">var</span> container = <span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">&lt;div&gt;&lt;/div&gt;</span><span class="delimiter">'</span></span>);
+        <span class="keyword">var</span> clearBtn = <span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">&lt;button id=&quot;clear-btn&quot; class=&quot;symbols&quot;&gt;C&lt;/button&gt;</span><span class="delimiter">'</span></span>);
+        clearBtn.appendTo(container);
+
+        <span class="keyword">var</span> calculator  = <span class="keyword">new</span> Calculator(container);
+        calculator.bindEvents(); <span class="comment">// need explanation</span>
+        spyOn(calculator,<span class="string"><span class="delimiter">'</span><span class="content">clear</span><span class="delimiter">'</span></span>);
+
+        clearBtn.trigger(<span class="string"><span class="delimiter">'</span><span class="content">click</span><span class="delimiter">'</span></span>);
+
+        expect(calculator.clear).toHaveBeenCalled();
+    })
+
+});
 </pre></td>
 </tr></table>
 </div>
 
+<p>Okay so now lets first understand what is going on here, we have created a container div and we are passing that as an argument to the Calculator constructor function. Why would we do that? The answer is when the tests are being executed there is no DOM tree, it is not able to find any of the DOM nodes that we are trying to select in our calculator code. </p>
+
+<p>So to circumvent this limitation what we did is we wrapped our calculator widget in a container div and we passed that div as an argument to the Calculator constructor, and whenever we are querying for any DOM node in our calculator code, we will use this <code>container</code> div as our context so that all DOM queries will start from this node and it will not have to traverse entire DOM tree. This is an immensly powerful feature which makes writting tests a lot easier and more maintainable. This approach also has a better performance than using naked $ selector which searches whole DOM tree.</p>
+
+<p>After that, we created a stub for our clear button and we have added that to our container div so that our button is now a child noe of this container div.</p>
+
+<p>Then we are using jasmine’s <code>spyOn</code> method which creates a spy on specified method on the given obejct and watches for any invokations of that method.</p>
+
+<p>Then we are using jasmine’s <code>.toHaveBeenCalled</code> matcher, it is very easy to guess what it does. It expectes that the perticular method has been called.</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+<strong><a href="#n10" name="n10">10</a></strong>
+<a href="#n11" name="n11">11</a>
+<a href="#n12" name="n12">12</a>
+<a href="#n13" name="n13">13</a>
+<a href="#n14" name="n14">14</a>
+<a href="#n15" name="n15">15</a>
+<a href="#n16" name="n16">16</a>
+<a href="#n17" name="n17">17</a>
+<a href="#n18" name="n18">18</a>
+<a href="#n19" name="n19">19</a>
+<strong><a href="#n20" name="n20">20</a></strong>
+<a href="#n21" name="n21">21</a>
+<a href="#n22" name="n22">22</a>
+<a href="#n23" name="n23">23</a>
+<a href="#n24" name="n24">24</a>
+<a href="#n25" name="n25">25</a>
+<a href="#n26" name="n26">26</a>
+<a href="#n27" name="n27">27</a>
+<a href="#n28" name="n28">28</a>
+<a href="#n29" name="n29">29</a>
+<strong><a href="#n30" name="n30">30</a></strong>
+<a href="#n31" name="n31">31</a>
+</pre></td>
+  <td class="code"><pre><span class="comment">/* calculator.js */</span>
+
+(<span class="keyword">function</span>(){
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">use strict</span><span class="delimiter">&quot;</span></span>;
+
+    <span class="keyword">function</span> <span class="function">Calculator</span>(container){
+        <span class="local-variable">this</span>.container = container;
+    };
+
+    Calculator.prototype.<span class="function">add</span> = <span class="keyword">function</span>(num1,num2){
+        num1 = isNaN(num1) ? <span class="integer">0</span> : parseInt(num1,<span class="integer">10</span>),
+        num2 = isNaN(num1) ? <span class="integer">0</span> : parseInt(num2,<span class="integer">10</span>);
+        <span class="keyword">return</span> num1 + num2;
+    };
+
+    Calculator.prototype.<span class="function">clear</span> = <span class="keyword">function</span>(){
+        <span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">#display-box</span><span class="delimiter">'</span></span>,<span class="local-variable">this</span>.container).val(<span class="string"><span class="delimiter">'</span><span class="delimiter">'</span></span>);
+    };  
+
+    Calculator.prototype.<span class="function">bindEvents</span> = <span class="keyword">function</span>(){
+        <span class="keyword">var</span> self = <span class="local-variable">this</span>;
+        <span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">#clear-btn</span><span class="delimiter">'</span></span>,self.container).click(<span class="keyword">function</span>(){
+            self.clear();
+        });
+    };
+
+    window.Calculator  = Calculator;
+
+})();
+
+
+</pre></td>
+</tr></table>
+</div>
+
+<p>For writting a spec that tests DOM manipulation, follow this checklist :</p>
+
+<ol>
+  <li>Create a base reference DOM node and attach all of your DOM nodes to that node. (in our case this is the <code>container</code> div)</li>
+  <li>In your source, for all DOM searches use this reference object as the context (line no 17 in calculator.js)</li>
+  <li>Attach your event handlers</li>
+  <li>Spy on the method which you want to get invoked after a perticular DOM manipulation (here we want <code>clear</code> method to be invoked after button click)</li>
+  <li>Trigger the event on the stub we created in step 1 (<code>clearBtn</code> at line no 36)</li>
+  <li>Expect the method to have been called.</li>
+</ol>
+
+<p>This is just a starting point and you can extend it with many other possible test scenarios. </p>
+
+<p>All the code used in this post is available on github in <a href="https://github.com/abhishekmulay/Calculator_JS_TDD">here</a>.</p>
+
+<p>It might seem intimidating at first but trust me once you get the hang of it this is pretty sweet and you will enjoy testing your javascript.</p>
+
+<p>If you have any questions or suggetions, let me know in the comments section below.</p>
+
+<p>Adios!</p>
 </div>
 
 
@@ -725,7 +1083,7 @@ describe(<span class="string"><span class="delimiter">&quot;</span><span class="
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/10/25/skipping-library-framework-javascript-while-debugging/" title="Previous Post: Skipping Library / Framework javascript code while debugging">&laquo; Skipping Library / Framework javascript code while debugging</a>
+        <a class="basic-alignment left" href="/blog/2014/11/24/this-is-sparta-understanding-context-in-javascript/" title="Previous Post: 'this' is sparta : Understanding 'context' in javascript">&laquo; &#8216;this&#8217; is sparta : Understanding &#8216;context&#8217; in javascript</a>
       
       
     </p>
@@ -793,7 +1151,7 @@ describe(<span class="string"><span class="delimiter">&quot;</span><span class="
 
 </section><section class="about" itemscope itemtype="http://data-vocabulary.org/Person">
   <h1>About Me</h1>
-	  <img class="about-img" src="/images/small.png">
+	  <img class="about-img" src="/images/about/small.png">
   <p>
   	Hi I am <span itemprop="name">Abhishek Mulay</span>,
   	I am a <span itemprop="title">Software Developer </span>, a movie buff, a foodie and an ardent TV watcher. 
@@ -806,6 +1164,10 @@ describe(<span class="string"><span class="delimiter">&quot;</span><span class="
     
       <li class="post">
         <a href="/blog/2014/12/13/javascript-unit-testing-with-jasmine/">Javascript Unit Testing With Jasmine</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/24/this-is-sparta-understanding-context-in-javascript/">&#8216;This&#8217; Is Sparta : Understanding &#8216;Context&#8217; in Javascript</a>
       </li>
     
       <li class="post">

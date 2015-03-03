@@ -2413,12 +2413,11 @@ ol.CodeRay li {
   text-decoration: underline;
 }
 
-.tdd-image {
+.center-image {
   width: 100%;
   text-align: center;
 }
-
-.tdd-image img {
+.center-image img {
   margin: 0 auto;
 }
 
