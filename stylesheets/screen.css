@@ -2413,11 +2413,10 @@ ol.CodeRay li {
   text-decoration: underline;
 }
 
-.center-image {
+.blog-image {
   width: 100%;
-  text-align: center;
 }
-.center-image img {
+.blog-image img {
   margin: 0 auto;
 }
 
@@ -2431,7 +2430,7 @@ ol.CodeRay li {
 }
 
 .background-abhishek {
-  background: url("../../images/Abhishek+jacket+wall.jpg") no-repeat;
+  background: url("../../images/about/Abhishek+jacket+wall.jpg") no-repeat;
   background-size: cover;
   background-position: cover;
   font-weight: bolder;
@@ -2479,10 +2478,6 @@ ol.CodeRay li {
   width: 60px;
   height: 60px;
   top: 10px;
-}
-
-.CodeRay .line-numbers pre a:last-child {
-  display: none;
 }
 
 @media only screen and (max-width: 480px) {

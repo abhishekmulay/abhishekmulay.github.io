@@ -156,6 +156,46 @@ console.log(Window.name);  <span class="comment">// &quot;Jules Winfield&quot;</
 
 <h2 id="function-context">Function context</h2>
 
+<p>Inside a function, the value of <code>this</code> depends on how the function is called.
+Let’s see what this means </p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+</pre></td>
+  <td class="code"><pre><span class="keyword">function</span> <span class="function">callMe</span>(){
+    console.log(<span class="string"><span class="delimiter">'</span><span class="content">this = </span><span class="delimiter">'</span></span>,<span class="local-variable">this</span>); 
+}
+
+callMe();  <span class="comment">// outputs this = window.</span>
+</pre></td>
+</tr></table>
+</div>
+
+<p>As we are not using <code>strict mode</code>, javascript returns an object the global window object. Let’s see what happens if we use strict mode.</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+</pre></td>
+  <td class="code"><pre><span class="keyword">function</span> <span class="function">callMeStrictly</span>(){
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">use strict</span><span class="delimiter">&quot;</span></span>;
+    console.log(<span class="string"><span class="delimiter">'</span><span class="content">this = </span><span class="delimiter">'</span></span>,<span class="local-variable">this</span>); 
+}
+
+callMeStrictly();  <span class="comment">// outputs this = undefined.</span>
+</pre></td>
+</tr></table>
+</div>
+<p>This is because in strict mode, the value of <code>this</code> remains at whatever it’s set to when entering the execution context hence the <code>undefined</code> in our case.</p>
+
 </div>
 
 

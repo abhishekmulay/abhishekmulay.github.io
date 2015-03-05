@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Unit Testing | Abhishek Mulay]]></title>
   <link href="http://www.abhishekmulay.com/blog/categories/unit-testing/atom.xml" rel="self"/>
   <link href="http://www.abhishekmulay.com/"/>
-  <updated>2015-03-05T18:18:01+05:30</updated>
+  <updated>2015-03-05T19:01:44+05:30</updated>
   <id>http://www.abhishekmulay.com/</id>
   <author>
     <name><![CDATA[Abhishek Mulay]]></name>
@@ -851,7 +851,7 @@ describe(<span class="string"><span class="delimiter">&quot;</span><span class="
         clearBtn.appendTo(container);
 
         <span class="keyword">var</span> calculator  = <span class="keyword">new</span> Calculator(container);
-        calculator.bindEvents(); <span class="comment">// need explanation</span>
+        calculator.bindEvents(); 
         spyOn(calculator,<span class="string"><span class="delimiter">'</span><span class="content">clear</span><span class="delimiter">'</span></span>);
 
         clearBtn.trigger(<span class="string"><span class="delimiter">'</span><span class="content">click</span><span class="delimiter">'</span></span>);
