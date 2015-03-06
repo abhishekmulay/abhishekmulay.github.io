@@ -196,6 +196,65 @@ callMeStrictly();  <span class="comment">// outputs this = undefined.</span>
 </div>
 <p>This is because in strict mode, the value of <code>this</code> remains at whatever it’s set to when entering the execution context hence the <code>undefined</code> in our case.</p>
 
+<h4 id="as-a-method-of-an-object">As a method of an object</h4>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> breakingBad = {
+    <span class="key">name</span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Heisenberg</span><span class="delimiter">&quot;</span></span>,
+    <span class="function">sayMyName</span> : <span class="keyword">function</span>(){
+        console.log(<span class="string"><span class="delimiter">'</span><span class="content">You are </span><span class="delimiter">'</span></span>,<span class="local-variable">this</span>.name);
+    }
+}
+
+breakingBad.sayMyName();  <span class="comment">// Outputs you are Heisenberg.</span>
+
+</pre></td>
+</tr></table>
+</div>
+
+<p>Whenever a method is a part of an object then it’s <code>this</code> reference points to that object.
+It does not matter if that method is member of that object or coming from it’s prototype, the <code>this</code> will always point to the same object.</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+<strong><a href="#n10" name="n10">10</a></strong>
+<a href="#n11" name="n11">11</a>
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> breakingBad = {
+    <span class="key">name</span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Heisenberg</span><span class="delimiter">&quot;</span></span>,
+    <span class="function">sayMyName</span> : <span class="keyword">function</span>(){
+        console.log(<span class="string"><span class="delimiter">'</span><span class="content">You are </span><span class="delimiter">'</span></span>,<span class="local-variable">this</span>.name);
+    }
+}
+
+<span class="keyword">var</span> walter = Object.create(breakingBad);
+walter.name = <span class="string"><span class="delimiter">&quot;</span><span class="content">Walter White</span><span class="delimiter">&quot;</span></span>;
+walter.sayMyName(); <span class="comment">// Outputs you are Walter White.</span>
+
+</pre></td>
+</tr></table>
+</div>
+
+<p>Here the <code>this</code> points to walter object because <code>sayMyName</code> method was called on that object and it does not matter that the method is not the member of walter object and it is inherited from its prototype. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create">Object.create()</a> method creates a new object with the specified prototype object and properties.</p>
+
 </div>
 
 
