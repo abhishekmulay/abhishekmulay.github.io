@@ -4,7 +4,7 @@
   <title><![CDATA[Abhishek Mulay]]></title>
   <link href="http://www.abhishekmulay.com/atom.xml" rel="self"/>
   <link href="http://www.abhishekmulay.com/"/>
-  <updated>2015-04-03T12:48:53+05:30</updated>
+  <updated>2015-04-03T13:02:54+05:30</updated>
   <id>http://www.abhishekmulay.com/</id>
   <author>
     <name><![CDATA[Abhishek Mulay]]></name>
@@ -976,8 +976,6 @@ For a javascript developer having a good grasp on the basics of the language is 
 One of the most important and misunderstood concepts in javascript is <code>this</code> or context.</p>
 
 <!-- more -->
-
-<p><img src="http://cdn.meme.am/instances/37773523.jpg" alt="Javascript is fun!" title="javascript is fun!" /></p>
 
 <p>So, without further ado, lets dive deep and understad what is the execution context.</p>
 
