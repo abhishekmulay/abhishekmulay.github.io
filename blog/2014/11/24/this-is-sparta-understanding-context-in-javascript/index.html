@@ -97,7 +97,7 @@
   </header>
 
 
-<div class="entry-content"><p>Javascript has came a long way from being a language used for showing popups in a webpage to being the highest trending language on Github.
+<div class="entry-content"><p>Javascript has come a long way from being a language used for showing popups in a webpage to being the highest trending language on Github.
 Javascript is sexy but it might bite you if you are not aware of the intricacies of the language.
 For a javascript developer having a good grasp on the basics of the language is very important.
 One of the most important and misunderstood concepts in javascript is <code>this</code> or context.</p>
@@ -114,19 +114,27 @@ One of the most important and misunderstood concepts in javascript is <code>this
 <p>If you are insecure and only trust the official word, here is the definition from official ECMAScript specification.</p>
 
 <blockquote>
-  <p>The this keyword evaluates to the value of the <code>ThisBinding</code> of the current execution context.</p>
+  <p>The <code>this</code> keyword evaluates to the value of the <code>ThisBinding</code> of the current execution context.</p>
 
   <p><strong> 11.1.1  The <code>this</code> keyword</strong> - <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-11.1.1">ECMAScript Language Specification</a></p>
 </blockquote>
 
-<p>Okay now for many of the people coming from Object Oriented background (java/C# etc) this might sound weird but in wonderful world of javascript the <code>this</code> can have different values depending upon the scope in which it was accessed. In most cases, the value of <code>this</code> is determined by how a function is called. </p>
+<p>Okay now for people coming from Object Oriented background (java/C# etc) this might sound weird but in wonderful world of javascript the <code>this</code> can have different values depending upon the scope in which it was accessed. In most cases, the value of <code>this</code> is determined by how a function is called. </p>
 
-<p>There are 4 possible execution contexts</p>
+<p>There are three possible execution contexts</p>
 
-<!-- + Global context
-+ Function context
-+ Constructor context
-+ A DOM Event handler -->
+<ul>
+  <li>Global context</li>
+  <li>Function context
+    <ul>
+      <li>Method of an object</li>
+      <li>As a constructor</li>
+      <li>call and apply</li>
+      <li>bind</li>
+    </ul>
+  </li>
+  <li>A DOM Event handler</li>
+</ul>
 
 <h2 id="global-context">Global context</h2>
 
@@ -372,7 +380,7 @@ console.log(tesla.name); <span class="comment">// I am a shiney Tesla!</span>
 </tr></table>
 </div>
 
-<h3 id="a-dom-event-handler">A DOM event handler</h3>
+<h2 id="a-dom-event-handler">A DOM event handler</h2>
 
 <div class="highlighter-coderay"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
