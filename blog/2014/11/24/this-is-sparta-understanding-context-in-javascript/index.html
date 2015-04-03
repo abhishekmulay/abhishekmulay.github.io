@@ -97,10 +97,10 @@
   </header>
 
 
-<div class="entry-content"><p>Javascript has came a long way from being a language used for changing the colors after clicking a button in a webpage to being the highest trending language on Github.
+<div class="entry-content"><p>Javascript has came a long way from being a language used for showing popups in a webpage to being the highest trending language on Github.
 Javascript is sexy but it might bite you if you are not aware of the intricacies of the language.
 For a javascript developer having a good grasp on the basics of the language is very important.
-One of the most important and misunderstood concepts in javascript is <code>context</code>.</p>
+One of the most important and misunderstood concepts in javascript is <code>this</code> or context.</p>
 
 <p>So, without further ado, lets dive deep and understad what is the execution context.
 <!-- more --></p>
@@ -119,7 +119,7 @@ One of the most important and misunderstood concepts in javascript is <code>cont
   <p><strong> 11.1.1  The <code>this</code> keyword</strong> - <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-11.1.1">ECMAScript Language Specification</a></p>
 </blockquote>
 
-<p>Okay now for many of the people coming from java/C# like background this might sound weird but in wonderful world of javascript the <code>this</code> can have different values depending upon the scope in which it was accessed. In most cases, the value of <code>this</code> is determined by how a function is called. </p>
+<p>Okay now for many of the people coming from Object Oriented background (java/C# etc) this might sound weird but in wonderful world of javascript the <code>this</code> can have different values depending upon the scope in which it was accessed. In most cases, the value of <code>this</code> is determined by how a function is called. </p>
 
 <p>There are 4 possible execution contexts</p>
 
@@ -170,7 +170,7 @@ Let’s see what this means </p>
     console.log(<span class="string"><span class="delimiter">'</span><span class="content">this = </span><span class="delimiter">'</span></span>,<span class="local-variable">this</span>); 
 }
 
-callMe();  <span class="comment">// outputs this = window.</span>
+callMe();  <span class="comment">//  this = window.</span>
 </pre></td>
 </tr></table>
 </div>
@@ -190,7 +190,7 @@ callMe();  <span class="comment">// outputs this = window.</span>
     console.log(<span class="string"><span class="delimiter">'</span><span class="content">this = </span><span class="delimiter">'</span></span>,<span class="local-variable">this</span>); 
 }
 
-callMeStrictly();  <span class="comment">// outputs this = undefined.</span>
+callMeStrictly();  <span class="comment">//  this = undefined.</span>
 </pre></td>
 </tr></table>
 </div>
@@ -216,7 +216,7 @@ callMeStrictly();  <span class="comment">// outputs this = undefined.</span>
     }
 }
 
-breakingBad.sayMyName();  <span class="comment">// Outputs you are Heisenberg.</span>
+breakingBad.sayMyName();  <span class="comment">// Heisenberg.</span>
 
 </pre></td>
 </tr></table>
@@ -247,7 +247,7 @@ It does not matter if that method is member of that object or coming from it’s
 
 <span class="keyword">var</span> walter = Object.create(breakingBad);
 walter.name = <span class="string"><span class="delimiter">&quot;</span><span class="content">Walter White</span><span class="delimiter">&quot;</span></span>;
-walter.sayMyName(); <span class="comment">// Outputs you are Walter White.</span>
+walter.sayMyName(); <span class="comment">// Walter White.</span>
 
 </pre></td>
 </tr></table>
@@ -255,6 +255,157 @@ walter.sayMyName(); <span class="comment">// Outputs you are Walter White.</span
 
 <p>Here the <code>this</code> points to walter object because <code>sayMyName</code> method was called on that object and it does not matter that the method is not the member of walter object and it is inherited from its prototype. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create">Object.create()</a> method creates a new object with the specified prototype object and properties.</p>
 
+<h3 id="as-a-constructor">As a constructor</h3>
+
+<p>When calling any function with <code>new</code>, its <code>this</code> will point to the newly created object.</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+</pre></td>
+  <td class="code"><pre><span class="keyword">function</span> <span class="function">Car</span>(){
+    <span class="local-variable">this</span>.name = <span class="string"><span class="delimiter">&quot;</span><span class="content">I am a shiney Tesla!</span><span class="delimiter">&quot;</span></span>;
+}
+
+<span class="keyword">var</span> tesla = <span class="keyword">new</span> Car();
+console.log(tesla.name); <span class="comment">// I am a shiney Tesla!</span>
+</pre></td>
+</tr></table>
+</div>
+
+<h3 id="the-handsome-twins--call-and-apply">The handsome twins : Call and Apply</h3>
+<p>I call them handsome twins because their working is exactly similar, the only difference is <code>call()</code>accepts an argument list, while <code>apply()</code> accepts a single array of arguments. </p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+<strong><a href="#n10" name="n10">10</a></strong>
+<a href="#n11" name="n11">11</a>
+<a href="#n12" name="n12">12</a>
+<a href="#n13" name="n13">13</a>
+<a href="#n14" name="n14">14</a>
+<a href="#n15" name="n15">15</a>
+<a href="#n16" name="n16">16</a>
+</pre></td>
+  <td class="code"><pre>(<span class="keyword">function</span>(){
+    <span class="string"><span class="delimiter">'</span><span class="content">use strict</span><span class="delimiter">'</span></span>;
+
+    <span class="keyword">function</span> <span class="function">Person</span>(name){
+        <span class="local-variable">this</span>.name = name;
+    };
+
+    <span class="keyword">var</span> abhi = <span class="keyword">new</span> Person(<span class="string"><span class="delimiter">'</span><span class="content">Abhishek</span><span class="delimiter">'</span></span>);
+
+    <span class="keyword">function</span> <span class="function">whoAreYou</span>(language){
+        console.log(<span class="local-variable">this</span>.name +<span class="string"><span class="delimiter">&quot;</span><span class="content"> is a </span><span class="delimiter">&quot;</span></span> + language+<span class="string"><span class="delimiter">&quot;</span><span class="content"> programmer.</span><span class="delimiter">&quot;</span></span>);
+    }
+
+    console.log(whoAreYou.call(abhi,<span class="string"><span class="delimiter">'</span><span class="content">javascript</span><span class="delimiter">'</span></span>)); <span class="comment">// Abhishek is a javascript programmer.</span>
+    
+})();
+</pre></td>
+</tr></table>
+</div>
+
+<p>Here function <code>whoAreYou</code> is reading the <code>name</code> property off the <code>this</code>,but as we are in strict mode currently its <code>this</code> is <code>undefined</code>, then how does this work? What <code>call</code> does is it calls <code>whoAreYou</code> with its <code>this</code> set to whaterver is the first arguement to the call function, in our case that is the <code>abhi</code> object which has its own name property.</p>
+
+<h3 id="the-evil-twin-bind">The evil twin bind</h3>
+
+<p>The <code>Function.bind</code> does exactly what call does, it changes the this reference of the function, but as he is an evil twin it doesn’t let go off the <code>this</code> even after the function being executed.</p>
+
+<p>The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+<strong><a href="#n10" name="n10">10</a></strong>
+<a href="#n11" name="n11">11</a>
+<a href="#n12" name="n12">12</a>
+<a href="#n13" name="n13">13</a>
+<a href="#n14" name="n14">14</a>
+<a href="#n15" name="n15">15</a>
+<a href="#n16" name="n16">16</a>
+<a href="#n17" name="n17">17</a>
+<a href="#n18" name="n18">18</a>
+<a href="#n19" name="n19">19</a>
+<strong><a href="#n20" name="n20">20</a></strong>
+</pre></td>
+  <td class="code"><pre>(<span class="keyword">function</span>(){
+
+    <span class="local-variable">this</span>.name = <span class="string"><span class="delimiter">&quot;</span><span class="content">Heisenberg</span><span class="delimiter">&quot;</span></span>;
+
+    <span class="keyword">var</span> person = {
+        <span class="key"><span class="delimiter">'</span><span class="content">name</span><span class="delimiter">'</span></span> : <span class="string"><span class="delimiter">'</span><span class="content">Walter White</span><span class="delimiter">'</span></span>,
+        <span class="function">sayMyName</span> : <span class="keyword">function</span>(){
+            console.log(<span class="local-variable">this</span>.name);
+        }        
+    };
+
+    person.sayMyName(); <span class="comment">// Walter White</span>
+
+    <span class="keyword">var</span> sayMyName = person.sayMyName;
+    sayMyName(); <span class="comment">// Heisenberg</span>
+
+    <span class="keyword">var</span> boundSayMyName = sayMyName.bind(person);
+    boundSayMyName(); <span class="comment">// Walter White</span>
+
+})();
+</pre></td>
+</tr></table>
+</div>
+
+<h3 id="a-dom-event-handler">A DOM event handler</h3>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+<strong><a href="#n10" name="n10">10</a></strong>
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;button</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">btn</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span> click me! <span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;script&gt;</span>
+<span class="inline">    
+    <span class="keyword">var</span> btn = document.querySelector(<span class="string"><span class="delimiter">'</span><span class="content">#btn</span><span class="delimiter">'</span></span>);
+    btn.addEventListener(<span class="string"><span class="delimiter">'</span><span class="content">click</span><span class="delimiter">'</span></span>,<span class="keyword">function</span>(){
+        <span class="local-variable">this</span>.style.background = <span class="string"><span class="delimiter">'</span><span class="content">yellow</span><span class="delimiter">'</span></span>;
+        console.log(<span class="local-variable">this</span>);  <span class="comment">// &lt;button id=&quot;btn&quot; style=&quot;background: yellow;&quot;&gt; click me! &lt;/button&gt;</span>
+    });</span>
+
+<span class="tag">&lt;/script&gt;</span>
+</pre></td>
+</tr></table>
+</div>
+
+<p>This code is running in the global context, hence the <code>this</code> is pointing to global object <code>window</code>.
+But inside the DOM click event handler the <code>this</code> keyword refers to the object to which we are attaching the event.</p>
+
+<p>That’s it folks, I hope now you get what <code>this</code> is. Keep these scenarios in mind and you will be able to easliy figure out what <code>this</code> is!</p>
+
+<h4 id="happy-coding">Happy coding!</h4>
 </div>
 
 
@@ -367,7 +518,7 @@ walter.sayMyName(); <span class="comment">// Outputs you are Walter White.</span
 
 </section><section class="about" itemscope itemtype="http://data-vocabulary.org/Person">
   <h1>About Me</h1>
-	  <img class="about-img" src="/images/about/small.png" alt="Hello I am Abhishek Mulay">
+	  <img class="about-img" src="/images/about/small.png" alt="Hello I am Abhishek Mulay" title="Abhishek Mulay">
   <p>
   	Hi I am <span itemprop="name">Abhishek Mulay</span>,
   	I am a <span itemprop="title">Software Developer </span>, a movie buff, a foodie and an ardent TV watcher. 
