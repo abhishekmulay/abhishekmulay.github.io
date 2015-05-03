@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Javascript | Abhishek Mulay]]></title>
   <link href="http://www.abhishekmulay.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://www.abhishekmulay.com/"/>
-  <updated>2015-04-10T20:36:36+05:30</updated>
+  <updated>2015-05-03T16:56:17+05:30</updated>
   <id>http://www.abhishekmulay.com/</id>
   <author>
     <name><![CDATA[Abhishek Mulay]]></name>
@@ -12,6 +12,126 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Do Not Forget Your New Keyword]]></title>
+    <link href="http://www.abhishekmulay.com/blog/2015/05/03/dont-forget-your-new/"/>
+    <updated>2015-05-03T16:04:43+05:30</updated>
+    <id>http://www.abhishekmulay.com/blog/2015/05/03/dont-forget-your-new</id>
+    <content type="html"><![CDATA[<p>Missing <code>new</code> while creaing an object in javascript is a very common and a lethal bug.</p>
+
+<p>What happens if you forget <code>new</code> while creating an Object ? </p>
+
+<p>Let’s figure it out, shall we?</p>
+
+<!--more-->
+
+<p>Let’s start from the basics. Suppose I have an Animal constructor and I want to make objets using constructor, I will do something like this</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+</pre></td>
+  <td class="code"><pre><span class="keyword">function</span> <span class="function">Animal</span>(){
+    <span class="string"><span class="delimiter">'</span><span class="content">use strict</span><span class="delimiter">'</span></span>;
+    <span class="local-variable">this</span>.color = <span class="string"><span class="delimiter">'</span><span class="content">Black</span><span class="delimiter">'</span></span>;
+}
+
+<span class="keyword">var</span> dog = <span class="keyword">new</span> Animal();
+console.log(dog.color); <span class="comment">// Black</span>
+</pre></td>
+</tr></table>
+</div>
+
+<p>Now, let’s see what is really happening behind the scene when we create the dog object using <code>new</code></p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+<a href="#n9" name="n9">9</a>
+</pre></td>
+  <td class="code"><pre><span class="keyword">function</span> <span class="function">Animal</span>() {
+    <span class="string"><span class="delimiter">'</span><span class="content">use strict</span><span class="delimiter">'</span></span>;
+    <span class="keyword">var</span> <span class="local-variable">this</span> = {}; <span class="comment">// this is not valid, just for illustration</span>
+    <span class="local-variable">this</span>.__proto__ = Animal.prototype;
+
+    <span class="local-variable">this</span>.color = <span class="string"><span class="delimiter">'</span><span class="content">Black</span><span class="delimiter">'</span></span>;
+
+    <span class="keyword">return</span> <span class="local-variable">this</span>;
+}
+</pre></td>
+</tr></table>
+</div>
+
+<ol>
+  <li>Here the <code>this</code> refers to the object of type <code>Animal</code></li>
+  <li>It sets the <code>prototype</code> of newly created object to <code>Animal</code></li>
+  <li>A new property is created on <code>Animal</code> object which has name <code>color</code></li>
+  <li>The current object <code>this</code> is returned.</li>
+</ol>
+
+<p>Lets see what happens if we miss <code>new </code> and create the object like </p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> cat = Animal();
+
+console.log(cat); <span class="comment">// undefined</span>
+console.log(cat.color); <span class="comment">// TypeError: Cannot read property 'color' of undefined</span>
+</pre></td>
+</tr></table>
+</div>
+
+<h3 id="but-why-">But why ?</h3>
+
+<p><strong>The reason is, when we invoke any Constructor function without the <code>new</code> keyword, the this reference within the constructor function will be <code>undefined</code>, hence any operation on <code>undefined</code> will throw a <code>TypeError</code></strong></p>
+
+<p>This is the scenario when our code is running in <code>strict mode</code>. Read more about <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode">strict mode</a>.</p>
+
+<p>If the code is not running in strict mode, then the <code>this</code> reference inside the Constructor function points to the global window object. This makes all the new object properties global (i.e. the property of the window object)  which is a VERY VERY bad thing!</p>
+
+<div class="highlighter-coderay"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
+<a href="#n2" name="n2">2</a>
+<a href="#n3" name="n3">3</a>
+<a href="#n4" name="n4">4</a>
+<a href="#n5" name="n5">5</a>
+<a href="#n6" name="n6">6</a>
+<a href="#n7" name="n7">7</a>
+<a href="#n8" name="n8">8</a>
+</pre></td>
+  <td class="code"><pre><span class="comment">/*This is not in strict mode*/</span>
+<span class="keyword">function</span> <span class="function">Animal</span>(){
+    <span class="local-variable">this</span>.color = <span class="string"><span class="delimiter">'</span><span class="content">Black</span><span class="delimiter">'</span></span>;
+}
+
+<span class="keyword">var</span> cat = Animal();
+console.log(window.color); <span class="comment">// Black</span>
+
+</pre></td>
+</tr></table>
+</div>
+
+<h3 id="so-fellas-when-creating-a-new-object-dont-forget-your-new-keyword">So fellas, when creating a new object don’t forget your <code>new</code> keyword!</h3>
+
+<h4 id="happy-javascripting">Happy javascripting!</h4>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Javascript Unit Testing With Jasmine]]></title>

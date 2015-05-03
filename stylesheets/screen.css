@@ -2463,22 +2463,6 @@ ol.CodeRay li {
 .background-abhishek ul li a:hover {
   color: #b53a29;
 }
-.background-abhishek .resume {
-  position: absolute;
-  max-width: 50%;
-  line-height: 2.0;
-  bottom: 220px;
-  font-size: 120%;
-}
-.background-abhishek .resume p {
-  margin: 0;
-}
-.background-abhishek .resume p a {
-  color: white;
-}
-.background-abhishek .resume p a:hover {
-  color: #b53a29;
-}
 .background-abhishek footer {
   display: none;
 }
