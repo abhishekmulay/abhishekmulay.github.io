@@ -35,11 +35,14 @@ body {
     padding-top: 5px;
 }
 
+#resume .content .section-heading{
+    font-weight: 600;
+}
 
 #resume .content .work-ex,
 #resume .content .education{
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 #resume .pill {
@@ -47,10 +50,12 @@ body {
     border-radius: 5px;
     background-color: #EDEFF3;
     color: #8697AF;
-    font-size: 12px;
+    font-size: 14px;
     padding: 3px 5px;
     white-space: nowrap;
     text-transform: capitalize;
+    margin: 5px;
+    display: inline-block;
 }
 
 
