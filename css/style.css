@@ -28,8 +28,6 @@ h1, h2, h3, h4, h5 {
     background-size: contain;
     border-radius: 50%;
     display: inline-block;
-    /*background: url('../img/me1.jpg') no-repeat -20px -5px;*/
-    /*background: url('../img/profile-noir.jpg') no-repeat;*/
     background: url('../img/7.jpg') no-repeat -2px -70px;
 }
 

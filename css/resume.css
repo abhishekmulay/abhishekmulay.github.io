@@ -1,0 +1,76 @@
+body {
+    font-size: 1em;
+    font-family: 'Lato', sans-serif;
+}
+
+#resume {
+    padding: 15px;
+}
+
+#resume .profile-pic {
+    height: 100px;
+    width: 100px;
+    background-size: contain;
+    border-radius: 50%;
+    display: inline-block;
+    background: url('../img/7.jpg') no-repeat -2px -70px;
+}
+
+
+#resume .contact .dot{
+    font-size: 7px;
+    margin: auto 7px;
+    top: -3px;
+    position: relative;
+}
+
+#resume .content{
+    border-top: 1px solid #e7e7e7;
+    padding-top: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.center-block {
+    display: table;
+    margin: 0 auto;
+}
+
+.h1,h1 {
+    font-size: 2rem;
+}
+
+.h2,h2 {
+    font-size: 1.75rem
+}
+
+.h3,h3 {
+    font-size: 1.5rem
+}
+
+.h4,h4 {
+    font-size: 1.25rem
+}
+
+.h5,h5 {
+    font-size: 1rem
+}
+
+.h6,h6 {
+    font-size: 0.75rem
+}
+
