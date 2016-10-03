@@ -22,20 +22,19 @@ body {
     background: url('../img/resume-pic.jpg') no-repeat -6px -6px;
 }
 
-
-#resume .contact .dot{
+#resume .contact .dot {
     font-size: 7px;
     margin: auto 7px;
     top: -3px;
     position: relative;
 }
 
-#resume .content{
+#resume .content {
     border-top: 1px solid #e7e7e7;
     padding-top: 15px;
 }
 
-#resume .content .section-heading{
+#resume .content .section-heading {
     font-weight: 600;
 }
 
@@ -59,35 +58,33 @@ body {
     display: inline-block;
 }
 
-
-
 .center-block {
     display: table;
     margin: 0 auto;
 }
 
-#resume .h1,h1 {
+#resume .h1, h1 {
     font-size: 200%;
 }
 
-#resume .h2,h2 {
+#resume .h2, h2 {
     font-size: 175%;
 }
 
-#resume .h3,h3 {
+#resume .h3, h3 {
     font-size: 150%;
 }
 
-#resume .h4,h4 {
+#resume .h4, h4 {
     font-size: 125%;
     margin: 0;
 }
 
-#resume .h5,h5 {
+#resume .h5, h5 {
     font-size: 110%;
 }
 
-#resume .h6,h6 {
+#resume .h6, h6 {
     font-size: 100%;
 }
 
@@ -104,4 +101,8 @@ body {
     padding: 0.15rem;
     border: 0;
     margin-left: 15px;
+}
+
+.fa {
+    padding-right: 5px;
 }
