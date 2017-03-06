@@ -1,10 +1,12 @@
 html, body {
     max-width: 100%;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-family: "Helvetica Neue", "Roboto" ,"Calibri Light", "Calibri";
+    font-family: "Helvetica Neue", "Roboto", "Calibri Light", "Calibri";
     font-weight: 300;
     font-size: 14px;
     color: #000000;
@@ -14,7 +16,7 @@ h1, h2, h3, h4, h5 {
     font-weight: 300;
 }
 
-.fa{
+.fa {
     padding-right: 3px;
 }
 
@@ -32,7 +34,7 @@ h1, h2, h3, h4, h5 {
     background-size: contain;
     border-radius: 50%;
     display: inline-block;
-    background: url('../img/7.jpg') no-repeat -2px -70px;
+    background: url('../public/img/7.jpg') no-repeat -2px -70px;
 }
 
 .skills-container {
@@ -47,16 +49,16 @@ h1, h2, h3, h4, h5 {
     height: 20px;
     width: 20px;
     background-size: contain;
-    background: url("../img/star.png") no-repeat;
+    background: url("../public/img/star.png") no-repeat;
     display: inline-block;
 }
 
 .star.half-star {
-    background: url("../img/half-star.png") no-repeat;
+    background: url("../public/img/half-star.png") no-repeat;
 }
 
-.star.empty-star{
-    background: url("../img/empty-star.jpg") no-repeat;
+.star.empty-star {
+    background: url("../public/img/empty-star.jpg") no-repeat;
     background-size: contain;
 }
 
