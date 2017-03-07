@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import HomePage from './homepage/HomePage.js';
+import Resume from './resume/Resume.js';
 
 class App extends Component {
     render() {
         return (
-            <HomePage></HomePage>
+            <div>
+                {/*<HomePage></HomePage>*/}
+                <Resume></Resume>
+            </div>
         );
     }
 }
