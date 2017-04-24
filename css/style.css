@@ -1,0 +1,75 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Helvetica Neue", "Roboto" ,"Calibri Light", "Calibri";
+    font-weight: 300;
+    font-size: 14px;
+    color: #000000;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 300;
+}
+
+.fa{
+    padding-right: 3px;
+}
+
+.header {
+    height: 30px;
+}
+
+.footer {
+    height: 60px;
+}
+
+.profile-pic {
+    height: 165px;
+    width: 165px;
+    background-size: contain;
+    border-radius: 50%;
+    display: inline-block;
+    background: url('../img/7.jpg') no-repeat -2px -70px;
+}
+
+.skills-container {
+    margin-top: 40px;
+}
+
+.name-container {
+    margin-top: 50px;
+}
+
+.star {
+    height: 20px;
+    width: 20px;
+    background-size: contain;
+    background: url("../img/star.png") no-repeat;
+    display: inline-block;
+}
+
+.star.half-star {
+    background: url("../img/half-star.png") no-repeat;
+}
+
+.star.empty-star{
+    background: url("../img/empty-star.jpg") no-repeat;
+    background-size: contain;
+}
+
+.social-icon {
+    height: 40px;
+    border-radius: 50%;
+}
+
+.email {
+    margin: 0 15px;
+}
+
+.introduction {
+    font-size: 110%;
+    padding: 10px;
+}
