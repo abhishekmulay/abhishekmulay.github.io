@@ -1,0 +1,22 @@
+{
+  "name": "abhishekmulay",
+  "version": "1.0.0",
+  "description": "Personal website of Abhishek Mulay",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://abhishekmulay@github.com/abhishekmulay/abhishekmulay.github.io.git"
+  },
+  "author": "Abhishek Mulay",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/abhishekmulay/abhishekmulay.github.io/issues"
+  },
+  "homepage": "https://github.com/abhishekmulay/abhishekmulay.github.io#readme",
+  "dependencies": {
+    "typed.js": "^2.0.5"
+  }
+}
