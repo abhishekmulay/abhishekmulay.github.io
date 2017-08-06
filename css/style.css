@@ -1,75 +1,162 @@
 html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
-    font-family: "Helvetica Neue", "Roboto" ,"Calibri Light", "Calibri";
-    font-weight: 300;
-    font-size: 14px;
-    color: #000000;
+  font-family: "Helvetica Neue", "Roboto", "Calibri Light", "Calibri";
+  font-weight: 300;
+  font-size: 14px;
+  color: #000000;
 }
 
 h1, h2, h3, h4, h5 {
-    font-weight: 300;
+  font-weight: 300;
 }
 
-.fa{
-    padding-right: 3px;
+.fa {
+  padding-right: 3px;
 }
 
 .header {
-    height: 30px;
+  height: 30px;
 }
 
 .footer {
-    height: 60px;
+  height: 60px;
 }
 
 .profile-pic {
-    height: 165px;
-    width: 165px;
-    background-size: contain;
-    border-radius: 50%;
-    display: inline-block;
-    background: url('../img/7.jpg') no-repeat -2px -70px;
+  height: 165px;
+  width: 165px;
+  background-size: contain;
+  border-radius: 50%;
+  display: inline-block;
+  background: url('../img/7.jpg') no-repeat -2px -70px;
 }
 
 .skills-container {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 .name-container {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 .star {
-    height: 20px;
-    width: 20px;
-    background-size: contain;
-    background: url("../img/star.png") no-repeat;
-    display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-size: contain;
+  background: url("../img/star.png") no-repeat;
+  display: inline-block;
 }
 
 .star.half-star {
-    background: url("../img/half-star.png") no-repeat;
+  background: url("../img/half-star.png") no-repeat;
 }
 
-.star.empty-star{
-    background: url("../img/empty-star.jpg") no-repeat;
-    background-size: contain;
+.star.empty-star {
+  background: url("../img/empty-star.jpg") no-repeat;
+  background-size: contain;
 }
 
 .social-icon {
-    height: 40px;
-    border-radius: 50%;
+  height: 40px;
+  border-radius: 50%;
 }
 
 .email {
-    margin: 0 15px;
+  margin: 0 15px;
 }
 
 .introduction {
-    font-size: 110%;
-    padding: 10px;
+  font-size: 110%;
+  padding: 10px;
 }
+
+/*________________________________________________________*/
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  -webkit-animation: dash 2s linear alternate infinite;
+}
+
+@-webkit-keyframes dash {
+  from {
+    stroke-dashoffset: 1000;
+    fill-opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+  }
+}
+
+/********************************************/
+
+.typed-intrdocution-container {
+  height: 80vh;
+  margin: 20vh auto 0;
+  text-align: center;
+}
+
+.typed-intrdocution-container .greeting {
+  margin-top: 5vh;
+}
+
+.typed-intrdocution-container  .typed-cursor {
+  display: none;
+}
+
+/********************************************/
+/*            ANIMATED DOWN ARROW
+/********************************************/
+.down-arrow-container {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+}
+
+@keyframes chevron-pulse {
+  0% {
+    opacity: 0
+  }
+
+  40% {
+    opacity: 1
+  }
+
+  80% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 0
+  }
+}
+
+.down-arrow-container .tcon-svgchevron {
+  height: 40px;
+  width: 40px;
+}
+
+.down-arrow-container .tcon-svgchevron path {
+  animation: chevron-pulse 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  fill: transparent;
+  stroke: #000;
+  stroke-width: 1px;
+}
+
+.down-arrow-container .tcon-svgchevron path.a1 {
+  animation-delay: 0s;
+}
+
+.down-arrow-container .tcon-svgchevron path.a2 {
+  animation-delay: -.5s;
+}
+
+.down-arrow-container .tcon-svgchevron path.a3 {
+  animation-delay: -1s;
+}
+
+/********************************************/
