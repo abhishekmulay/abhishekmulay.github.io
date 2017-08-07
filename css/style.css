@@ -151,7 +151,6 @@ a, a:hover, a:active, a:visited {
 .down-arrow-container .learn-more:active,
 .down-arrow-container .learn-more:visited {
   text-decoration: none;
-  text-transform: uppercase;
   display: block;
   padding: 10px;
   color: rgba(0,0,0,0.7);
@@ -314,6 +313,6 @@ color: white;
 
  #footer {
    background: #000;
-   height: 100px;
+   min-height: 100px;
    padding: 10px;
  }
