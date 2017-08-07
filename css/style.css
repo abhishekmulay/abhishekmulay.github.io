@@ -146,7 +146,11 @@ a, a:hover, a:active, a:visited {
   text-align: center;
 }
 
-.down-arrow-container .learn-more {
+.down-arrow-container .learn-more,
+.down-arrow-container .learn-more:hover,
+.down-arrow-container .learn-more:active,
+.down-arrow-container .learn-more:visited {
+  text-decoration: none;
   text-transform: uppercase;
   display: block;
   padding: 10px;
