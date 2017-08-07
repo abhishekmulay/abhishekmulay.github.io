@@ -1,176 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
     <title>Abhishek Mulay</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="js/typed.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>new WOW().init();</script>
     <script src="js/main.js"></script>
 </head>
 <body>
 
-<div class="typed-intrdocution-container">
-    <figure>
-        <div alt="Abhishek" class="profile-pic"></div>
-    </figure>
-    <h3 class="greeting"></h3>
-    <h4 class="typed-intro"></h4>
-
-    <div class="down-arrow-container">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="tcon-svgchevron" viewBox="0 0 30 36">
-            <path class="a3" d="M0,0l15,16L30,0"></path>
-            <path class="a2" d="M0,10l15,16l15-16"></path>
-            <path class="a1" d="M0,20l15,16l15-16"></path>
-        </svg>
-    </div>
-</div>
-
-<div class="container-fluid">
-    <div class="header row"></div>
-    <div class="body row">
-
-        <div class="row">
-            <div class="col-lg-2 col-md-2"></div>
-            <div class="col-lg-4 col-md-4 col-xs-12 text-xs-center">
-                <figure>
-                    <div alt="Abhishek" class="profile-pic"></div>
-                </figure>
-            </div>
-            <div class="col-lg-4 col-md-4 col-xs-12 text-xs-center name-container">
-                <h1 class="text-xs-center">Abhishek Mulay</h1>
-                <h5 class="text-xs-center text-muted"> Polyglot Software Engineer</h5>
-            </div>
-            <div class="col-lg-2 col-md-2"></div>
+<div id="root">
+    <div class="full-height-section container-fluid">
+        <figure class="profile-pic-container wow fadeInUp">
+            <div alt="Abhishek" class="profile-pic"></div>
+        </figure>
+        <div class="typed-intrdocution-container">
+            <h3 class="greeting"></h3>
+            <h4 class="typed-intro"></h4>
         </div>
+        <div class="down-arrow-container">
+            <a class="learn-more">Learn More</a>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="tcon-svgchevron" viewBox="0 0 30 36">
+                <path class="a3" d="M0,0l15,16L30,0"></path>
+                <path class="a2" d="M0,10l15,16l15-16"></path>
+                <path class="a1" d="M0,20l15,16l15-16"></path>
+            </svg>
+        </div>
+    </div>
+    <div id="about" class="full-height-section container-fluid">
+        <div class="col-md-5 col-xs-12 about-photo">
+            <img class="img-vertical" src="img/abhishek_vertical.jpg" alt="Abhishek at Wissachikon Valley Park, PA">
+        </div>
+        <div class="col-md-5 col-md-offset-1 col-xs-12 about-information">
+            <div class="row">
+                <div class="col-xs-12 text-center hero-name-intro">
+                    <h1>Hello, I'm Abhishek Mulay.</h1>
+                    <h4 class="wow fadeInUp">I am a polyglot software engineer.</h4>
+                </div>
+                <div class="col-xs-12">
+                    <p class="about-text wow fadeInUp">I am currently a graduate student in Computer Science at <a href="http://www.ccis.northeastern.edu/">Northeastern University, Boston.</a>
+                        I have a Bachelors in Technology in Computer Science from <a href="http://www.walchandsangli.ac.in/">Walchand College of Engineering, Sangli.</a></p>
 
-        <div class="row introduction">
+                    <p class="about-text wow fadeInUp" data-wow-delay="1s">I have more than 3.5 years of work experience developing software for web based from landing pages to large scale progressive web applications. I believe good software is the one that has pixel-perfect and addictive UX and works as
+                        efficiently as possible on the back end.</p>
 
-            <div class="col-xs-12 col-md-8 offset-md-2">
-                <div class="text-lg-left font-120">
-                    <div >Hello! 👋  I am Abhishek. I am a Software Engineer by profession and a geek by nature.</div>
-                    <div>I am now back in college and studying Master's degree in Computer Science at Northeastern University, Boston, MA.</div>
-                    <div >I have had my affairs with Java in past, but currently I am in love with Javascript and Web in general.</div>
-                    <div >I am proficient in modern web technologies including Javascript, Typescript, Angular 1&2, React.</div>
-                    <div >I hate to use terms like Javascript Ninja! (What are your weapons? Callback Shuriken? Closure Katana?  😂), I <i>promise</i> I am not this punny everytime! 🤓</div>
+                    <p class="about-text wow fadeInUp" data-wow-delay="1.5s">When I'm not in front of a computer, I am out wondering in woods, petting dogs, reading C&H or cooking new cuisines.</p>
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-lg-2 col-md-2"></div>
-            <div class="col-lg-4 col-md-4 skills-container">
-                <h5 class="text-xs-center">Front End Skills</h5>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="pull-xs-left">HTML</div>
-                        <div class="pull-xs-right">
-                            <span class="star"></span>
-                            <span class="star"></span>
-                            <span class="star"></span>
-                            <span class="star"></span>
-                            <span class="star"></span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="pull-xs-left">
-                            CSS, SCSS, LESS
-                        </div>
-                        <div class="pull-xs-right">
-                            <span class="star"></span>
-                            <span class="star"></span>
-                            <span class="star"></span>
-                            <span class="star"></span>
-                            <span class="star"></span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="pull-xs-left">
-                            JavaScript, Angular 1&2, React
-                        </div>
-                        <div class="pull-xs-right">
-                            <span class="star"></span>
-                            <span class="star"></span>
-                            <span class="star"></span>
-                            <span class="star"></span>
-                            <span class="star half-star"></span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-lg-4 col-md-4 skills-container">
-                <h5 class="text-xs-center">Back End Skills</h5>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <span class="pull-xs-left">Python</span>
-                        <div class="pull-xs-right">
-                            <span class="star"></span>
-                            <span class="star"></span>
-                            <span class="star"></span>
-                            <span class="star"></span>
-                            <span class="star empty-star"></span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="pull-xs-left">Java</span>
-                        <div class="pull-xs-right">
-                            <span class="star"></span>
-                            <span class="star"></span>
-                            <span class="star"></span>
-                            <span class="star half-star"></span>
-                            <span class="star empty-star"></span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="pull-xs-left">
-                            Node.js, Express, Restify
-                        </span>
-                        <div class="pull-xs-right">
-                            <span class="star"></span>
-                            <span class="star"></span>
-                            <span class="star"></span>
-                            <span class="star half-star"></span>
-                            <span class="star empty-star"></span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-md-2"></div>
-        </div>
-
-        <div class="footer row" style="margin-top: 15px;">
-            <div class="col-xs-12 text-lg-center">
-                <p>You can check out my resume here: <a href="resume.html">resume</a></p>
-            </div>
-        </div>
-
-        <div class="row text-xs-center">
-            <a href="https://in.linkedin.com/in/abhishekmulay/">
-                <img class="social-icon" src="img/linkedin.png" alt="Abhishek on Linkedin">
-            </a>
-
-            <span class="text-muted text-xs-center email">
-                abhishek_mulay [at] hotmail [dot] com
-            </span>
-
-            <a href="https://github.com/abhishekmulay">
-                <img class="social-icon" src="img/github.svg" alt="Abhishek on Github">
-            </a>
-        </div>
-
     </div>
-
+    <div id="skills" class="full-height-section container-fluid">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h1 class="wow fadeInUp">Skills</h1>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3 col-xs-6">
+                <ul class="skill-list list-group">
+                    <li class="skill-item list-group-item wow fadeInLeft">Python</li>
+                    <li class="skill-item list-group-item wow fadeInLeft">Java</li>
+                    <li class="skill-item list-group-item wow fadeInLeft">JavaScript</li>
+                    <li class="skill-item list-group-item wow fadeInLeft">Flask</li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-xs-6">
+                <ul class="skill-list list-group">
+                    <li class="skill-item list-group-item wow fadeInRight">React.js</li>
+                    <li class="skill-item list-group-item wow fadeInRight">Angular.js</li>
+                    <li class="skill-item list-group-item wow fadeInRight">HTML5</li>
+                    <li class="skill-item list-group-item wow fadeInRight">CSS3/SCSS</li>
+                </ul>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-md-3 col-md-offset-4 wow fadeInUp">
+                <ul class="list-group">
+                    <li class="list-group-item"> <span class="checkmark"></span> Git, Github / Perforce</li>
+                    <li class="list-group-item"> <span class="checkmark"></span> ZSH</li>
+                    <li class="list-group-item"> <span class="checkmark"></span> Postman</li>
+                </ul>
+            </div>
+            <div class="col-xs-6 col-md-3 wow fadeInUp">
+                <ul class="list-group">
+                    <li class="list-group-item"> <span class="checkmark"></span> ECMAScript 6</li>
+                    <li class="list-group-item"> <span class="checkmark"></span> Chrome Dev Tools</li>
+                    <li class="list-group-item"> <span class="checkmark"></span> Webpack</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="full-height-section container-fluid">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h1 class="wow fadeInUp">Projects</h1>
+            </div>
+            <div class="col-xs-12 text-center">
+                Coming soon...
+            </div>
+        </div>
+    </div>
 </div>
-
 
 </body>
 </html>

@@ -17,7 +17,7 @@ window.onload = function () {
 
   function showIntroduction() {
     var typedIntro = new Typed(".typed-intro", {
-      strings: ["Nice to meet you!", "Please scroll down to know more about me.", "Seriously! Please scroll down."],
+      strings: ["Nice to meet you!", "Please scroll down to know more about me.", "What are you waiting for?  🤓"],
       backDelay: 1500,
       typeSpeed: 40,
       backSpeed: 20,
@@ -25,31 +25,20 @@ window.onload = function () {
     });
   }
 
+  remCalibrate();
+  window.addEventListener('resize', remCalibrate, false);
+
 };
 
 
-// $(function(){
-//   $("h2 .first").typed({
-//     strings: ["This should stay forever. "],
-//     typeSpeed: 0,
-//     callback: function() {
-//       showThis();
-//     },
-//
-//   });
-//
-//   function showThis(){
-//
-//     $("span.second").typed({
-//       strings: ["Loop Element 1", "Element 2 Here", "New Element 3", "Element # 4"],
-//       backDelay: 1500,
-//       typeSpeed: 100,
-//       backSpeed: 100,
-//       loop: true,
-//
-//     });
-//
-//   }
-// });
+function remCalibrate() {
+  // clip to a decent range size to avoid, making endless size adjustments as screens being bigger and bigger
+  var aspect_ratio =  (window.innerHeight/window.innerWidth)/0.75
+  var vwh =  window.innerWidth/100
+  var rem = Math.max(8,Math.min(24,vwh*aspect_ratio))
+
+  document.documentElement.style.fontSize =  rem + 'px';
+}
+
 
 

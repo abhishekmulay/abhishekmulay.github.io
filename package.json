@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/abhishekmulay/abhishekmulay.github.io#readme",
   "dependencies": {
-    "typed.js": "^2.0.5"
+    "typed.js": "^2.0.5",
+    "wowjs": "^1.1.3"
   }
 }

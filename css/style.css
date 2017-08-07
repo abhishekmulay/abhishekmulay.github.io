@@ -1,13 +1,16 @@
 html, body {
   max-width: 100%;
   overflow-x: hidden;
+  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 body {
-  font-family: "Helvetica Neue", "Roboto", "Calibri Light", "Calibri";
+  font-family: 'Open Sans', "Helvetica Neue", sans-serif;
   font-weight: 300;
-  font-size: 14px;
   color: #000000;
+  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 h1, h2, h3, h4, h5 {
@@ -26,13 +29,8 @@ h1, h2, h3, h4, h5 {
   height: 60px;
 }
 
-.profile-pic {
-  height: 165px;
-  width: 165px;
-  background-size: contain;
-  border-radius: 50%;
-  display: inline-block;
-  background: url('../img/7.jpg') no-repeat -2px -70px;
+a, a:hover, a:active, a:visited {
+  color: rgba(12, 144, 254, 1);
 }
 
 .skills-container {
@@ -70,33 +68,63 @@ h1, h2, h3, h4, h5 {
 }
 
 .introduction {
-  font-size: 110%;
   padding: 10px;
 }
 
 /*________________________________________________________*/
-.path {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  -webkit-animation: dash 2s linear alternate infinite;
+/*           Photo
+/*________________________________________________________*/
+
+.profile-pic-container {
+  padding: 10vh;
+  text-align: center;
 }
 
-@-webkit-keyframes dash {
-  from {
-    stroke-dashoffset: 1000;
-    fill-opacity: 0;
-  }
-  to {
-    stroke-dashoffset: 0;
-    fill-opacity: 1;
-  }
+.profile-pic-container  .profile-pic {
+  height: 165px;
+  width: 165px;
+  background-size: contain;
+  border-radius: 50%;
+  display: inline-block;
+  background: url('../img/7.jpg') no-repeat -2px -70px;
 }
+
 
 /********************************************/
+/*         Reusable classes
+/********************************************/
+.full-height-section {
+  /*min-height: 100vh;*/
+  min-height: 700px;
+  height: auto;
+  /*height: 100vh;*/
+  border-bottom: 1px solid #ddd;
+}
+
+.checkmark {
+  display: inline-block;
+}
+.checkmark:after {
+  /*Add another block-level blank space*/
+  content: '';
+  display: block;
+  /*Make it a small rectangle so the border will create an L-shape*/
+  width: 7px;
+  height: 14px;
+  /*Add a white border on the bottom and left, creating that 'L' */
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  /*Rotate the L 45 degrees to turn it into a checkmark*/
+  transform: rotate(45deg);
+}
+
+
+/********************************************/
+/*         Typed section
+/********************************************/
+
 
 .typed-intrdocution-container {
-  height: 80vh;
-  margin: 20vh auto 0;
   text-align: center;
 }
 
@@ -115,6 +143,15 @@ h1, h2, h3, h4, h5 {
   position: absolute;
   bottom: 20px;
   width: 100%;
+  text-align: center;
+}
+
+.down-arrow-container .learn-more {
+  text-transform: uppercase;
+  display: block;
+  padding: 10px;
+  color: rgba(0,0,0,0.7);
+  cursor: pointer;
 }
 
 @keyframes chevron-pulse {
@@ -160,3 +197,60 @@ h1, h2, h3, h4, h5 {
 }
 
 /********************************************/
+/* About section
+/*******************************************/
+
+#about {
+  /*background: rgba(12, 144, 254, 1);*/
+  background: #2b2b2b;
+  color: white;
+}
+
+#about .hero-name-intro {
+  padding: 0 0 25px 0;
+}
+
+#about .img-vertical {
+  width: 100%;
+}
+
+#about .about-information,
+#about .about-photo {
+  padding-top: 5%;
+}
+
+#about .about-text {
+  font-size: 100%;
+  padding: 10px;
+}
+
+/********************************************/
+/* Skills section
+/*******************************************/
+
+
+#skills .skill-list {}
+
+#skills .skill-list .skill-item {
+  height: 100px;
+  width: 100px;
+  line-height: 100px;
+  border-radius: 100px;
+  background: white;
+  text-align: center;
+  color: #000;
+  font-weight: 500;
+  font-size: 120%;
+  border: 1px solid #7b7b7b;
+  cursor: pointer;
+  padding: 0;
+  margin: 10px auto;
+}
+
+#skills .list-group-item {
+  border: none;
+}
+
+#skills .list-group-item .checkmark{
+  padding-right: 10px;
+}
