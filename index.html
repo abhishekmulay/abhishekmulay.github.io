@@ -15,22 +15,28 @@
 
 <div id="root">
     <div id="typed-intro" class="full-height-section container-fluid">
-        <figure class="profile-pic-container wow fadeInDown">
-            <div alt="Abhishek" class="profile-pic"></div>
-        </figure>
-        <div class="typed-intrdocution-container">
-            <h3 class="greeting"></h3>
-            <h4 class="typed-intro"></h4>
-        </div>
-        <div class="down-arrow-container">
-            <a class="learn-more" href="#about">Learn More</a>
-            <a href="#about">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="tcon-svgchevron" viewBox="0 0 30 36">
-                    <path class="a3" d="M0,0l15,16L30,0"></path>
-                    <path class="a2" d="M0,10l15,16l15-16"></path>
-                    <path class="a1" d="M0,20l15,16l15-16"></path>
-                </svg>
-            </a>
+        <div class="row">
+            <div class="col-xs-12">
+                <figure class="profile-pic-container wow fadeInDown">
+                    <div alt="Abhishek" class="profile-pic"></div>
+                </figure>
+            </div>
+            <div class="col-xs-12">
+                <div class="typed-intrdocution-container">
+                    <h3 class="greeting"></h3>
+                    <h4 class="typed-intro"></h4>
+                </div>
+            </div>
+            <div class="col-xs-12 down-arrow-container text-center">
+                <a class="learn-more" href="#about">Learn More</a>
+                <a href="#about">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="tcon-svgchevron" viewBox="0 0 30 36">
+                        <path class="a3" d="M0,0l15,16L30,0"></path>
+                        <path class="a2" d="M0,10l15,16l15-16"></path>
+                        <path class="a1" d="M0,20l15,16l15-16"></path>
+                    </svg>
+                </a>
+            </div>
         </div>
     </div>
     <div id="about" class="full-height-section container-fluid">
@@ -47,7 +53,8 @@
                     <p class="about-text wow fadeInUp">I am currently a graduate student in Computer Science at <a href="http://www.ccis.northeastern.edu/">Northeastern University, Boston.</a>
                         I have a Bachelors in Technology in Computer Science from <a href="http://www.walchandsangli.ac.in/">Walchand College of Engineering, Sangli.</a></p>
 
-                    <p class="about-text wow fadeInUp" data-wow-delay="1s">I have more than 3.5 years of work experience developing software for web based applications from landing pages to large scale progressive web applications. I believe good software is the one that has pixel-perfect and addictive UX and works as
+                    <p class="about-text wow fadeInUp" data-wow-delay="1s">I have more than 3.5 years of work experience developing software for web based applications from landing pages to large scale progressive web applications. I believe good software is the one that has pixel-perfect and
+                        addictive UX and works as
                         efficiently as possible on the back end. I have worked in on large projects at <a href="http://www.cdkglobal.com/" target="_blank">ADP/CDK </a> and in a fast paced startup environment at <a href="mezi.com" target="_blank">Mezi</a>.</p>
 
                     <p class="about-text wow fadeInUp" data-wow-delay="1.5s">When I'm not in front of a computer, I am out wondering in woods, petting dogs, reading C&H or cooking new cuisines.</p>
@@ -83,16 +90,16 @@
         <div class="row">
             <div class="col-xs-6 col-md-3 col-md-offset-4 wow fadeInUp">
                 <ul class="list-group">
-                    <li class="list-group-item"> <span class="checkmark"></span> Git, Github / Perforce</li>
-                    <li class="list-group-item"> <span class="checkmark"></span> ZSH</li>
-                    <li class="list-group-item"> <span class="checkmark"></span> Postman</li>
+                    <li class="list-group-item"><span class="checkmark"></span> Git, Github / Perforce</li>
+                    <li class="list-group-item"><span class="checkmark"></span> ZSH</li>
+                    <li class="list-group-item"><span class="checkmark"></span> Postman</li>
                 </ul>
             </div>
             <div class="col-xs-6 col-md-3 wow fadeInUp">
                 <ul class="list-group">
-                    <li class="list-group-item"> <span class="checkmark"></span> ECMAScript 6</li>
-                    <li class="list-group-item"> <span class="checkmark"></span> Chrome Dev Tools</li>
-                    <li class="list-group-item"> <span class="checkmark"></span> Webpack</li>
+                    <li class="list-group-item"><span class="checkmark"></span> ECMAScript 6</li>
+                    <li class="list-group-item"><span class="checkmark"></span> Chrome Dev Tools</li>
+                    <li class="list-group-item"><span class="checkmark"></span> Webpack</li>
                 </ul>
             </div>
         </div>
@@ -117,19 +124,25 @@
                 <form class="contact-form wow fadeInUp" action="https://formspree.io/abhishek_mulay@hotmail.com" method="POST">
                     <div class="row form-group">
                         <div class="col-xs-12">
-                            <label for="visitor-name">Name: <small>So that I know who I am talking to.</small></label>
+                            <label for="visitor-name">Name:
+                                <small>So that I know who I am talking to.</small>
+                            </label>
                             <input id="visitor-name" name="visitor-name" type="text" class="form-control" placeholder="Your name..." required minlength="8">
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-xs-12">
-                            <label for="visitor-email">E-mail: <small>So that I know how to get back to you.</small></label>
+                            <label for="visitor-email">E-mail:
+                                <small>So that I know how to get back to you.</small>
+                            </label>
                             <input id="visitor-email" name="visitor-email" type="email" class="form-control" placeholder="Your email..." required>
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-xs-12">
-                            <label for="visitor-message">Message: <small>Anything you would like to discuss or share.</small></label>
+                            <label for="visitor-message">Message:
+                                <small>Anything you would like to discuss or share.</small>
+                            </label>
                             <textarea id="visitor-message" name="visitor-message" class="form-control" placeholder="Your message..." required minlength="16"></textarea>
                         </div>
                     </div>

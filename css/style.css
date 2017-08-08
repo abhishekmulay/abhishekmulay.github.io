@@ -123,6 +123,9 @@ a, a:hover, a:active, a:visited {
 /*         Typed section
 /********************************************/
 
+#typed-intro {
+  position: relative;
+}
 
 .typed-intrdocution-container {
   text-align: center;
