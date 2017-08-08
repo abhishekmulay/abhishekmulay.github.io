@@ -94,8 +94,8 @@ a, a:hover, a:active, a:visited {
 /*         Reusable classes
 /********************************************/
 .full-height-section {
-  /*min-height: 100vh;*/
-  min-height: 700px;
+  min-height: 100vh;
+  /*min-height: 700px;*/
   height: auto;
   /*height: 100vh;*/
   border-bottom: 1px solid #ddd;
