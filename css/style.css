@@ -129,6 +129,7 @@ a, a:hover, a:active, a:visited {
 
 .typed-intrdocution-container {
   text-align: center;
+  min-height: 100px;
 }
 
 .typed-intrdocution-container .greeting {
@@ -310,7 +311,7 @@ color: white;
   color: #aaa;
 }
 
-  /********************************************/
+/********************************************/
 /* Footer section */
 /*******************************************/
 
@@ -319,3 +320,28 @@ color: white;
    min-height: 100px;
    padding: 10px;
  }
+
+
+/********************************************/
+/* Navigation section */
+/*******************************************/
+
+
+#site-nav a.toscroll{
+  font-size: 120%;
+}
+
+#site-nav a {
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+
+#site-nav .row .col-xs-12{
+  border-right: 1px solid #b2b2b2;
+}
+
+#site-nav .row .col-xs-12:last-child {
+  border-right: none;
+}
+
+/*...................................*/
