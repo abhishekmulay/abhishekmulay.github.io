@@ -25,8 +25,8 @@ window.onload = function () {
     });
   }
 
-  remCalibrate();
-  window.addEventListener('resize', remCalibrate, false);
+  // remCalibrate();
+  // window.addEventListener('resize', remCalibrate, false);
 
   $('a[href^="#"]').click(function () {
 
