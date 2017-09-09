@@ -78,7 +78,7 @@ a, a:hover, a:active, a:visited {
   text-align: center;
 }
 
-.profile-pic-container  .profile-pic {
+.profile-pic-container .profile-pic {
   height: 165px;
   width: 165px;
   background-size: contain;
@@ -86,7 +86,6 @@ a, a:hover, a:active, a:visited {
   display: inline-block;
   background: url('../img/7.jpg') no-repeat -2px -70px;
 }
-
 
 /********************************************/
 /*         Reusable classes
@@ -102,6 +101,7 @@ a, a:hover, a:active, a:visited {
 .checkmark {
   display: inline-block;
 }
+
 .checkmark:after {
   /*Add another block-level blank space*/
   content: '';
@@ -115,7 +115,6 @@ a, a:hover, a:active, a:visited {
   /*Rotate the L 45 degrees to turn it into a checkmark*/
   transform: rotate(45deg);
 }
-
 
 /********************************************/
 /*         Typed section
@@ -134,7 +133,7 @@ a, a:hover, a:active, a:visited {
   margin-top: 5vh;
 }
 
-.typed-intrdocution-container  .typed-cursor {
+.typed-intrdocution-container .typed-cursor {
   display: none;
 }
 
@@ -155,7 +154,7 @@ a, a:hover, a:active, a:visited {
   text-decoration: none;
   display: block;
   padding: 10px;
-  color: rgba(0,0,0,0.7);
+  color: rgba(0, 0, 0, 0.7);
   cursor: pointer;
 }
 
@@ -233,8 +232,8 @@ a, a:hover, a:active, a:visited {
 /* Skills section                          */
 /*******************************************/
 
-
-#skills .skill-list {}
+#skills .skill-list {
+}
 
 #skills .skill-list .skill-item {
   height: 100px;
@@ -256,7 +255,7 @@ a, a:hover, a:active, a:visited {
   border: none;
 }
 
-#skills .list-group-item .checkmark{
+#skills .list-group-item .checkmark {
   padding-right: 10px;
 }
 
@@ -270,41 +269,41 @@ a, a:hover, a:active, a:visited {
   background: #f4f4f4;
 }
 
-#contact  .contact-header {
+#contact .contact-header {
   color: #2b2b2b;
 }
 
-#contact  .contact-form {
+#contact .contact-form {
   margin-top: 10%;
 }
 
-#contact  .contact-form .form-control,
-#contact  .contact-form .btn {
-  border-radius : 5px;
+#contact .contact-form .form-control,
+#contact .contact-form .btn {
+  border-radius: 5px;
   height: 50px;
   font-size: 130%;
   color: #000;
   border: 1px solid black;
 }
+
 #contact .contact-form textarea.form-control {
   height: 100px;
-  width : 100%;
+  width: 100%;
   resize: vertical;
 }
 
-#contact  .contact-form .btn-default:hover {
-background: #2b2b2b;
-color: white;
+#contact .contact-form .btn-default:hover {
+  background: #2b2b2b;
+  color: white;
 }
 
-
-#contact  .contact-form label {
-  color: rgba(0,0,0,0.8);
+#contact .contact-form label {
+  color: rgba(0, 0, 0, 0.8);
   font-size: 120%;
   display: block;
 }
 
-#contact  .contact-form label small {
+#contact .contact-form label small {
   float: right;
   color: #aaa;
 }
@@ -313,33 +312,45 @@ color: white;
 /* Footer section */
 /*******************************************/
 
- #footer {
-   background: #000;
-   min-height: 100px;
-   padding: 10px;
- }
-
+#footer {
+  background: #000;
+  min-height: 100px;
+  padding: 10px;
+}
 
 /********************************************/
 /* Navigation section */
 /*******************************************/
 
+#site-nav .nav-link {
+  border-right: 1px solid #b2b2b2;
+  height: 40px;
+}
 
-#site-nav a.toscroll{
+#site-nav .nav-link:hover,
+#site-nav .nav-link:active {
+  /*background: rgba(0,0,0, 0.05);*/
+  background: #f9f9f9;
+}
+
+#site-nav .nav-link:last-child {
+  border-right: none;
+}
+
+#site-nav .nav-link .toscroll {
   font-size: 120%;
 }
 
-#site-nav a {
+#site-nav .nav-link a {
   color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
+  display: block;
 }
 
-#site-nav .row .col-xs-12{
-  border-right: 1px solid #b2b2b2;
-}
-
-#site-nav .row .col-xs-12:last-child {
-  border-right: none;
+#site-nav .nav-link a:hover,
+#site-nav .nav-link a:visited,
+#site-nav .nav-link a:active {
+  text-decoration: none;
 }
 
 /*...................................*/
