@@ -25,9 +25,6 @@ window.onload = function () {
     });
   }
 
-  // remCalibrate();
-  // window.addEventListener('resize', remCalibrate, false);
-
   $('a[href^="#"]').click(function () {
 
     var the_id = $(this).attr("href");
@@ -41,16 +38,3 @@ window.onload = function () {
 
 
 };
-
-
-function remCalibrate() {
-  // clip to a decent range size to avoid, making endless size adjustments as screens being bigger and bigger
-  var aspect_ratio = (window.innerHeight / window.innerWidth) / 0.75
-  var vwh = window.innerWidth / 100
-  var rem = Math.max(8, Math.min(24, vwh * aspect_ratio))
-
-  document.documentElement.style.fontSize = rem + 'px';
-}
-
-
-
