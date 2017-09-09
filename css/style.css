@@ -264,9 +264,8 @@ a, a:hover, a:active, a:visited {
 /*******************************************/
 
 #contact {
-  /*background-size: cover;*/
-  /*background: rgba(0, 0, 0, 0.5) url('../img/snow.jpg') no-repeat fixed center center;*/
-  background: #f4f4f4;
+  /*background: #f9f9f9;*/
+  background: #fff;
 }
 
 #contact .contact-header {
@@ -283,7 +282,8 @@ a, a:hover, a:active, a:visited {
   height: 50px;
   font-size: 130%;
   color: #000;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
+  border: 1px solid #7b7b7b;
 }
 
 #contact .contact-form textarea.form-control {
@@ -298,7 +298,8 @@ a, a:hover, a:active, a:visited {
 }
 
 #contact .contact-form label {
-  color: rgba(0, 0, 0, 0.8);
+  /*color: rgba(0, 0, 0, 0.8);*/
+  color: #7b7b7b;
   font-size: 120%;
   display: block;
 }
@@ -342,7 +343,8 @@ a, a:hover, a:active, a:visited {
 }
 
 #site-nav .nav-link a {
-  color: rgba(0, 0, 0, 0.8);
+  /*color: rgba(0, 0, 0, 0.8);*/
+  color: #7b7b7b;
   cursor: pointer;
   display: block;
 }
@@ -355,3 +357,41 @@ a, a:hover, a:active, a:visited {
 }
 
 /*...................................*/
+
+
+/********************************************/
+/* Proect section */
+/*******************************************/
+
+#projects {
+  background: #f9f9f9;
+}
+
+.project-container {
+  /*border: 1px solid rgba(0,0,0, 0.5);*/
+  border: 1px solid #7b7b7b;
+  border-radius: 10px;
+  text-align: left;
+  background: #fff;
+  padding: 10px;
+  margin: 10px auto;
+}
+
+.project-container .project-name {
+  font-weight: 500;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.project-container .tech-used .tech-bubble {
+  border: 1px solid #E2E5EB;
+  border-radius: 5px;
+  background-color: #EDEFF3;
+  color: #8697AF;
+  font-size: 14px;
+  padding: 3px 5px;
+  white-space: nowrap;
+  text-transform: capitalize;
+  margin: 0 5px 5px 0;
+  display: inline-block;
+}
