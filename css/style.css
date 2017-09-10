@@ -388,7 +388,7 @@ a, a:hover, a:active, a:visited {
   border: 1px solid #E2E5EB;
   border-radius: 5px;
   background-color: #EDEFF3;
-  color: #8697AF;
+  color: rgba(0,0,0,0.7);
   font-size: 14px;
   padding: 3px 5px;
   white-space: nowrap;
