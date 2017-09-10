@@ -326,6 +326,7 @@ a, a:hover, a:active, a:visited {
 #site-nav .nav-link {
   border-right: 1px solid #b2b2b2;
   height: 40px;
+  line-height: 40px;
 }
 
 #site-nav .nav-link:hover,
