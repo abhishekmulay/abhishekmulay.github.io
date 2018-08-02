@@ -1,305 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Abhishek Mulay</title>
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="css/style.css">
-
+  <title>Abhishek Mulay</title>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <div id="root">
-    <div id="typed-intro" class="full-height-section container-fluid">
+  <div id="typed-intro" class="full-height-section container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <figure class="profile-pic-container wow fadeInDown">
+          <div alt="Abhishek" class="profile-pic"></div>
+        </figure>
+      </div>
+      <div class="col-xs-12">
+        <div class="typed-intrdocution-container">
+          <h3 class="greeting"></h3>
+          <h4 class="typed-intro"></h4>
+        </div>
+      </div>
+
+      <div id="site-nav" class="col-xs-12">
+        <div class="row text-center">
+          <div class="nav-link col-xs-12 col-sm-2 col-sm-offset-1">
+            <a href="#about" class="toscroll">About</a>
+          </div>
+          <div class="nav-link col-xs-12 col-sm-2">
+            <a href="#skills" class="toscroll">Skills</a>
+          </div>
+          <div class="nav-link col-xs-12 col-sm-2">
+            <a href="#projects" class="toscroll">Projects</a>
+          </div>
+          <div class="nav-link col-xs-12 col-sm-2">
+            <a href="#contact" class="toscroll">Contact</a>
+          </div>
+          <div class="nav-link col-xs-12 col-sm-2">
+            <a href="resume.html" class="toscroll" target="_blank">Resume</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 down-arrow-container text-center">
+        <a class="learn-more" href="#about">Learn More</a>
+        <a href="#about" class="toscroll">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="tcon-svgchevron" viewBox="0 0 30 36">
+            <path class="a3" d="M0,0l15,16L30,0"></path>
+            <path class="a2" d="M0,10l15,16l15-16"></path>
+            <path class="a1" d="M0,20l15,16l15-16"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="about" class="full-height-section container-fluid">
+    <div class="col-md-5 col-xs-12 about-photo">
+      <img class="img-vertical" src="img/abhishek_vertical.jpg" alt="Abhishek at Wissachikon Valley Park, PA">
+    </div>
+    <div class="col-md-5 col-md-offset-1 col-xs-12 about-information">
+      <div class="row">
+        <div class="col-xs-12 text-center hero-name-intro">
+          <h1>Hello, I'm Abhishek Mulay.</h1>
+          <h4 class="wow fadeInUp">I am a polyglot software engineer.</h4>
+        </div>
+        <div class="col-xs-12">
+          <p class="about-text wow fadeInUp">I am currently a graduate student in Computer Science at <a href="http://www.ccis.northeastern.edu/">Northeastern University, Boston.</a>I have a Bachelors in Technology in Computer Science from <a href="http://www.walchandsangli.ac.in/">Walchand College of Engineering, Sangli.</a></p>
+
+          <p class="about-text wow fadeInUp" data-wow-delay="1s">I have more than 4 years of work experience
+            developing software for complex web applications and services. I have worked on large enterprise
+            projects at <a href="http://riivos.com/" target="_blank">Riivos</a>, <a href="http://www.cdkglobal.com/" target="_blank">ADP/CDK </a> and in a fast paced startup environment
+            at <a href="mezi.com" target="_blank">Mezi (aquired by AmericanExpress)</a>.</p>
+
+          <p class="about-text wow fadeInUp" data-wow-delay="1.5s">When I'm not in front of a computer, I am out
+            wondering in woods, petting dogs, reading <a href="http://explosm.net/">C&H</a> or cooking new cuisines.</p>
+          <p class="about-text wow fadeInUp" data-wow-delay="1.75s">You can check out my <a href="resume.html"
+                                                                                            target="_blank">resume</a>
+            here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="skills" class="full-height-section container-fluid">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <h1 class="wow fadeInUp">Skills</h1>
+      </div>
+      <div class="col-md-3"></div>
+      <div class="col-md-3 col-xs-6">
+        <ul class="skill-list list-group">
+          <li class="skill-item list-group-item wow fadeInLeft">Node.js</li>
+          <li class="skill-item list-group-item wow fadeInLeft">JavaScript</li>
+          <li class="skill-item list-group-item wow fadeInLeft">Python</li>
+          <li class="skill-item list-group-item wow fadeInLeft">Java</li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-xs-6">
+        <ul class="skill-list list-group">
+          <li class="skill-item list-group-item wow fadeInRight">React.js</li>
+          <li class="skill-item list-group-item wow fadeInRight">Angular.js</li>
+          <li class="skill-item list-group-item wow fadeInRight">Cassandra</li>
+          <li class="skill-item list-group-item wow fadeInRight">ELK</li>
+        </ul>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-md-3 col-md-offset-4 wow fadeInUp">
+        <ul class="list-group">
+          <li class="list-group-item"><span class="checkmark"></span> Git, Github / Perforce</li>
+          <li class="list-group-item"><span class="checkmark"></span> curl</li>
+          <li class="list-group-item"><span class="checkmark"></span> Postman</li>
+        </ul>
+      </div>
+      <div class="col-xs-6 col-md-3 wow fadeInUp">
+        <ul class="list-group">
+          <li class="list-group-item"><span class="checkmark"></span> ECMAScript 6</li>
+          <li class="list-group-item"><span class="checkmark"></span> Chrome Dev Tools</li>
+          <li class="list-group-item"><span class="checkmark"></span> Jaeger tracer</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="projects" class="full-height-section container-fluid">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <h1 class="wow fadeInUp">Projects</h1>
+      </div>
+      <div class="col-xs-12 text-center">
         <div class="row">
+          <div class="col-md-6 col-xs-12  wow fadeInUp">
+            <div class="project-container">
+              <span class="badge pull-right">Mezi</span>
+              <h4 class="project-name">Conversational commerce web application</h4>
+              <div class="project-details">
+                <ul>
+                  <li>Architected and developed highly performant, world class conversational commerce
+                    webapp
+                  </li>
+                  <li>Worked closely with CTO & VP of Product for product vision and roadmap</li>
+                  <li>Owned more than 70 % codebase of Webapp written in Angular js</li>
+                  <li>Integrated with third party REST APIs for scalable SAS architecture including
+                    Stripe (payment),
+                    IATA (airports), Expedia Affiliate Network (hotels and flights) etc.
+                  </li>
+                </ul>
+              </div>
+              <div class="tech-used">
+                <div class="tech-bubble">Angular.js</div>
+                <div class="tech-bubble">Angular 2</div>
+                <div class="tech-bubble">Python</div>
+                <div class="tech-bubble">Google App Engine</div>
+                <div class="tech-bubble">HTML</div>
+                <div class="tech-bubble">CSS</div>
+                <div class="tech-bubble">Bootstrap</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xs-12  wow fadeInUp">
+            <div class="project-container">
+              <span class="badge pull-right">NEU</span>
+              <h4 class="project-name">Topical Web Crawler and Search Engine</h4>
+              <div class="project-details">
+                <ul>
+                  <li>Crawled 100k documents related to specific topic.</li>
+                  <li>Cleaned and stored crawled documents in ElasticSearch distributed clusters.</li>
+                  <li>Developed web application to search and evaluate documents.</li>
+                  <li>Used BM25 for ranking crawled documents.</li>
+                </ul>
+              </div>
+              <div class="tech-used">
+                <div class="tech-bubble">Java</div>
+                <div class="tech-bubble">ElasticSearch</div>
+                <div class="tech-bubble">React.js</div>
+                <div class="tech-bubble">HTML</div>
+                <div class="tech-bubble">CSS</div>
+                <div class="tech-bubble">Bootstrap</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-xs-12  wow fadeInUp">
+            <div class="project-container">
+              <span class="badge pull-right">Personal</span>
+              <h4 class="project-name">CareerMate - Application Tracking System</h4>
+              <div class="project-details">
+                <ul>
+                  <li>Built a single page web application using React.js and Redux for tracking the
+                    jobs applications
+                  </li>
+                  <li>Designed RESTful APIs for backend system</li>
+                  <li>Used NoSQL database to store the relevant information about the job and the
+                    details provided by candidate
+                  </li>
+                </ul>
+              </div>
+              <div class="tech-used">
+                <div class="tech-bubble">Python</div>
+                <div class="tech-bubble">Flask</div>
+                <div class="tech-bubble">React.js</div>
+                <div class="tech-bubble">Redux</div>
+                <div class="tech-bubble">HTML</div>
+                <div class="tech-bubble">CSS</div>
+                <div class="tech-bubble">Bootstrap</div>
+                <div class="tech-bubble">MongoDB</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xs-12  wow fadeInUp">
+            <div class="project-container">
+              <span class="badge pull-right">Personal</span>
+              <h4 class="project-name">AbhishekMulay.com - Personal Website</h4>
+              <div class="project-details">
+                <ul>
+                  <li>Designed and developed responsive website from scratch</li>
+                  <li>Developed responsive web <a href="resume.html" class="toscroll" target="_blank">resume</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="tech-used">
+                <div class="tech-bubble">HTML</div>
+                <div class="tech-bubble">CSS</div>
+                <div class="tech-bubble">Bootstrap</div>
+                <div class="tech-bubble">JavaScript</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="contact" class="full-height-section container-fluid">
+    <div class="row contact-row">
+      <div class="col-xs-12 text-center">
+        <h3 class="contact-header">Have a new project in mind? or just want to say hello? </h3>
+        <h4 class="contact-header">Drop me a line.</h4>
+      </div>
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <form class="contact-form wow fadeInUp" action="https://formspree.io/abhishek_mulay@hotmail.com"
+              method="POST">
+          <div class="row form-group">
             <div class="col-xs-12">
-                <figure class="profile-pic-container wow fadeInDown">
-                    <div alt="Abhishek" class="profile-pic"></div>
-                </figure>
+              <label for="visitor-name">Name:
+                <small>So that I know who I am talking to.</small>
+              </label>
+              <input id="visitor-name" name="visitor-name" type="text" class="form-control"
+                     placeholder="Your name..." required minlength="8">
             </div>
+          </div>
+          <div class="row form-group">
             <div class="col-xs-12">
-                <div class="typed-intrdocution-container">
-                    <h3 class="greeting"></h3>
-                    <h4 class="typed-intro"></h4>
-                </div>
+              <label for="visitor-email">E-mail:
+                <small>So that I know how to get back to you.</small>
+              </label>
+              <input id="visitor-email" name="visitor-email" type="email" class="form-control"
+                     placeholder="Your email..." required>
             </div>
-
-            <div id="site-nav" class="col-xs-12">
-                <div class="row text-center">
-                    <div class="nav-link col-xs-12 col-sm-2 col-sm-offset-1">
-                        <a href="#about" class="toscroll">About</a>
-                    </div>
-                    <div class="nav-link col-xs-12 col-sm-2">
-                        <a href="#skills" class="toscroll">Skills</a>
-                    </div>
-                    <div class="nav-link col-xs-12 col-sm-2">
-                        <a href="#projects" class="toscroll">Projects</a>
-                    </div>
-                    <div class="nav-link col-xs-12 col-sm-2">
-                        <a href="#contact" class="toscroll">Contact</a>
-                    </div>
-                    <div class="nav-link col-xs-12 col-sm-2">
-                        <a href="resume.html" class="toscroll" target="_blank">Resume</a>
-                    </div>
-                </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-xs-12">
+              <label for="visitor-message">Message:
+                <small>Anything you would like to discuss or share.</small>
+              </label>
+              <textarea id="visitor-message" name="visitor-message" class="form-control"
+                        placeholder="Your message..." required minlength="16"></textarea>
             </div>
-
-            <div class="col-xs-12 down-arrow-container text-center">
-                <a class="learn-more" href="#about">Learn More</a>
-                <a href="#about" class="toscroll">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="tcon-svgchevron" viewBox="0 0 30 36">
-                        <path class="a3" d="M0,0l15,16L30,0"></path>
-                        <path class="a2" d="M0,10l15,16l15-16"></path>
-                        <path class="a1" d="M0,20l15,16l15-16"></path>
-                    </svg>
-                </a>
+          </div>
+          <div class="row form-group text-center">
+            <div class="col-xs-12">
+              <button class="btn btn-md btn-default">Send message!</button>
             </div>
-        </div>
+          </div>
+        </form>
+      </div>
     </div>
-    <div id="about" class="full-height-section container-fluid">
-        <div class="col-md-5 col-xs-12 about-photo">
-            <img class="img-vertical" src="img/abhishek_vertical.jpg" alt="Abhishek at Wissachikon Valley Park, PA">
+  </div>
+  <div id="footer">
+    <div class="container-fluid">
+      <div class="row text-xs-center text-center">
+        <div class="col-xs-4">
+          <a href="https://in.linkedin.com/in/abhishekmulay/">
+            <img class="social-icon" src="img/linkedin.png" alt="Abhishek on Linkedin">
+          </a>
         </div>
-        <div class="col-md-5 col-md-offset-1 col-xs-12 about-information">
-            <div class="row">
-                <div class="col-xs-12 text-center hero-name-intro">
-                    <h1>Hello, I'm Abhishek Mulay.</h1>
-                    <h4 class="wow fadeInUp">I am a polyglot software engineer.</h4>
-                </div>
-                <div class="col-xs-12">
-                    <p class="about-text wow fadeInUp">I am currently a graduate student in Computer Science at <a href="http://www.ccis.northeastern.edu/">Northeastern University, Boston.</a>
-                        I have a Bachelors in Technology in Computer Science from <a href="http://www.walchandsangli.ac.in/">Walchand College of Engineering, Sangli.</a></p>
-
-                    <p class="about-text wow fadeInUp" data-wow-delay="1s">I have more than 3.5 years of work experience developing software for web based applications from landing pages to large scale progressive web applications. I believe good software is the one that has pixel-perfect and
-                        addictive UX and works as
-                        efficiently as possible on the back end. I have worked on large enterprise projects at <a href="http://www.cdkglobal.com/" target="_blank">ADP/CDK </a> and in a fast paced startup environment at <a href="mezi.com" target="_blank">Mezi</a>.</p>
-
-                    <p class="about-text wow fadeInUp" data-wow-delay="1.5s">When I'm not in front of a computer, I am out wondering in woods, petting dogs, reading <a href="http://explosm.net/">C&H</a> or cooking new cuisines.</p>
-                    <p class="about-text wow fadeInUp" data-wow-delay="1.75s">You can check out my <a href="resume.html" target="_blank">resume</a> here.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="skills" class="full-height-section container-fluid">
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <h1 class="wow fadeInUp">Skills</h1>
-            </div>
-            <div class="col-md-3"></div>
-            <div class="col-md-3 col-xs-6">
-                <ul class="skill-list list-group">
-                    <li class="skill-item list-group-item wow fadeInLeft">Python</li>
-                    <li class="skill-item list-group-item wow fadeInLeft">Java</li>
-                    <li class="skill-item list-group-item wow fadeInLeft">JavaScript</li>
-                    <li class="skill-item list-group-item wow fadeInLeft">Flask</li>
-                </ul>
-            </div>
-            <div class="col-md-3 col-xs-6">
-                <ul class="skill-list list-group">
-                    <li class="skill-item list-group-item wow fadeInRight">React.js</li>
-                    <li class="skill-item list-group-item wow fadeInRight">Angular.js</li>
-                    <li class="skill-item list-group-item wow fadeInRight">HTML5</li>
-                    <li class="skill-item list-group-item wow fadeInRight">CSS3/SCSS</li>
-                </ul>
-            </div>
-            <div class="col-md-3"></div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6 col-md-3 col-md-offset-4 wow fadeInUp">
-                <ul class="list-group">
-                    <li class="list-group-item"><span class="checkmark"></span> Git, Github / Perforce</li>
-                    <li class="list-group-item"><span class="checkmark"></span> ZSH</li>
-                    <li class="list-group-item"><span class="checkmark"></span> Postman</li>
-                </ul>
-            </div>
-            <div class="col-xs-6 col-md-3 wow fadeInUp">
-                <ul class="list-group">
-                    <li class="list-group-item"><span class="checkmark"></span> ECMAScript 6</li>
-                    <li class="list-group-item"><span class="checkmark"></span> Chrome Dev Tools</li>
-                    <li class="list-group-item"><span class="checkmark"></span> Webpack</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div id="projects" class="full-height-section container-fluid">
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <h1 class="wow fadeInUp">Projects</h1>
-            </div>
-            <div class="col-xs-12 text-center">
-                <div class="row">
-                    <div class="col-md-6 col-xs-12  wow fadeInUp">
-                        <div class="project-container">
-                            <span class="badge pull-right">Mezi</span>
-                            <h4 class="project-name">Conversational commerce web application</h4>
-                            <div class="project-details">
-                                <ul>
-                                    <li>Architected and developed highly performant, world class conversational commerce webapp</li>
-                                    <li>Worked closely with CTO & VP of Product for product vision and roadmap</li>
-                                    <li>Owned more than 70 % codebase of Webapp written in Angular js</li>
-                                    <li>Integrated with third party REST APIs for scalable SAS architecture including Stripe (payment),
-                                        IATA (airports), Expedia Affiliate Network (hotels and flights) etc.
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="tech-used">
-                                <div class="tech-bubble">Angular.js</div>
-                                <div class="tech-bubble">Angular 2</div>
-                                <div class="tech-bubble">Python</div>
-                                <div class="tech-bubble">Google App Engine</div>
-                                <div class="tech-bubble">HTML</div>
-                                <div class="tech-bubble">CSS</div>
-                                <div class="tech-bubble">Bootstrap</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-xs-12  wow fadeInUp">
-                        <div class="project-container">
-                            <span class="badge pull-right">NEU</span>
-                            <h4 class="project-name">Topical Web Crawler and Search Engine</h4>
-                            <div class="project-details">
-                                <ul>
-                                    <li>Crawled 100k documents related to specific topic.</li>
-                                    <li>Cleaned and stored crawled documents in ElasticSearch distributed clusters.</li>
-                                    <li>Developed web application to search and evaluate documents.</li>
-                                    <li>Used BM25 for ranking crawled documents.</li>
-                                </ul>
-                            </div>
-                            <div class="tech-used">
-                                <div class="tech-bubble">Java</div>
-                                <div class="tech-bubble">ElasticSearch</div>
-                                <div class="tech-bubble">React.js</div>
-                                <div class="tech-bubble">HTML</div>
-                                <div class="tech-bubble">CSS</div>
-                                <div class="tech-bubble">Bootstrap</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-xs-12  wow fadeInUp">
-                        <div class="project-container">
-                            <span class="badge pull-right">Personal</span>
-                            <h4 class="project-name">CareerMate - Application Tracking System</h4>
-                            <div class="project-details">
-                                <ul>
-                                    <li>Built a single page web application using React.js and Redux for tracking the jobs applications</li>
-                                    <li>Designed RESTful APIs for backend system</li>
-                                    <li>Used NoSQL database to store the relevant information about the job and the details provided by candidate</li>
-                                </ul>
-                            </div>
-                            <div class="tech-used">
-                                <div class="tech-bubble">Python</div>
-                                <div class="tech-bubble">Flask</div>
-                                <div class="tech-bubble">React.js</div>
-                                <div class="tech-bubble">Redux</div>
-                                <div class="tech-bubble">HTML</div>
-                                <div class="tech-bubble">CSS</div>
-                                <div class="tech-bubble">Bootstrap</div>
-                                <div class="tech-bubble">MongoDB</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-xs-12  wow fadeInUp">
-                        <div class="project-container">
-                            <span class="badge pull-right">Personal</span>
-                            <h4 class="project-name">AbhishekMulay.com - Personal Website</h4>
-                            <div class="project-details">
-                                <ul>
-                                    <li>Designed and developed responsive website from scratch</li>
-                                    <li>Developed responsive web <a href="resume.html" class="toscroll" target="_blank">resume</a> </li>
-                                </ul>
-                            </div>
-                            <div class="tech-used">
-                                <div class="tech-bubble">HTML</div>
-                                <div class="tech-bubble">CSS</div>
-                                <div class="tech-bubble">Bootstrap</div>
-                                <div class="tech-bubble">JavaScript</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="contact" class="full-height-section container-fluid">
-        <div class="row contact-row">
-            <div class="col-xs-12 text-center">
-                <h3 class="contact-header">Have a new project in mind? or just want to say hello? </h3>
-                <h4 class="contact-header">Drop me a line.</h4>
-            </div>
-            <div class="col-xs-12 col-md-6 col-md-offset-3">
-                <form class="contact-form wow fadeInUp" action="https://formspree.io/abhishek_mulay@hotmail.com" method="POST">
-                    <div class="row form-group">
-                        <div class="col-xs-12">
-                            <label for="visitor-name">Name:
-                                <small>So that I know who I am talking to.</small>
-                            </label>
-                            <input id="visitor-name" name="visitor-name" type="text" class="form-control" placeholder="Your name..." required minlength="8">
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-xs-12">
-                            <label for="visitor-email">E-mail:
-                                <small>So that I know how to get back to you.</small>
-                            </label>
-                            <input id="visitor-email" name="visitor-email" type="email" class="form-control" placeholder="Your email..." required>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-xs-12">
-                            <label for="visitor-message">Message:
-                                <small>Anything you would like to discuss or share.</small>
-                            </label>
-                            <textarea id="visitor-message" name="visitor-message" class="form-control" placeholder="Your message..." required minlength="16"></textarea>
-                        </div>
-                    </div>
-                    <div class="row form-group text-center">
-                        <div class="col-xs-12">
-                            <button class="btn btn-md btn-default">Send message!</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div id="footer">
-        <div class="container-fluid">
-            <div class="row text-xs-center text-center">
-                <div class="col-xs-4">
-                    <a href="https://in.linkedin.com/in/abhishekmulay/">
-                        <img class="social-icon" src="img/linkedin.png" alt="Abhishek on Linkedin">
-                    </a>
-                </div>
-                <div class="col-xs-4 text-center">
+        <div class="col-xs-4 text-center">
                 <span class="text-muted text-xs-center email">
                     abhishek_mulay [at] hotmail [dot] com
                 </span>
-                </div>
-                <div class="col-xs-4 text-center">
-                    <a href="https://github.com/abhishekmulay">
-                        <img class="social-icon" src="img/github.png" alt="Abhishek on Github">
-                    </a>
-                </div>
-                <div class="col-xs-12">
-                    <p class="text-muted">Made with ❤️ using HTML5, CSS3, Bootstrap and plain old JavaScript.</p>
-                </div>
-            </div>
         </div>
+        <div class="col-xs-4 text-center">
+          <a href="https://github.com/abhishekmulay">
+            <img class="social-icon" src="img/github.png" alt="Abhishek on Github">
+          </a>
+        </div>
+        <div class="col-xs-12">
+          <p class="text-muted">Made with ❤️ using HTML5, CSS3, Bootstrap and plain old JavaScript.</p>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!--scripts imported here-->
-    <script src="js/typed.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>new WOW().init();</script>
-    <script src="js/main.js"></script>
+  <!--scripts imported here-->
+  <script src="js/typed.min.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>new WOW().init();</script>
+  <script src="js/main.js"></script>
 </div>
 
 </body>
